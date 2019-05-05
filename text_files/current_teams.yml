@@ -1,13 +1,39 @@
-night name: test halo VX
 matches:
-  - members:
-      - name: Clay
-        score: 10
-      - name: Jeff
-        score: 11
-    isJeffsRoom: true
-  - members:
-      - name: Craig
-        score: 12
-      - name: Michael
-        score: 7
+- _match number: 1
+  teams:
+  - isJeffsRoom: true
+    players:
+    - name: Carmine
+      score: 8
+    - name: Michael
+      score: 16
+    - name: Alex Mark
+      score: 13
+    - name: Jack
+      score: 12
+    - name: Arthur
+      score: 17
+    - name: Clay
+      score: 20
+    - name: Big Jake
+      score: 15
+    team score: 101
+  - players:
+    - name: Jeff
+      score: 22
+    - name: Alex Roe
+      score: 19
+    - name: Eli
+      score: 23
+    - name: Alex b
+      score: 15
+    - name: Nathan
+      score: 11
+    - name: Derek
+      score: 9
+    - name: Zach Costa
+      score: 10
+    - name: Franny
+      score: 8
+    team score: 117
+night name: test halo VX

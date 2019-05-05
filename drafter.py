@@ -6,29 +6,46 @@ import time
 import logging
 from watchdog.events import PatternMatchingEventHandler
 from watchdog.observers import Observer
-
+from yaml import load, dump
 from watchdog.events import LoggingEventHandler
 
-CURRENT_TEAM_FILENAME = "current_teams.yml"
+CURRENT_TEAM_FILENAME: str = "current_teams.yml"
 
-def modifyYaml(yml):
+def modifyJson(yml):
+  for i, match in enumerate(yml["matches"]):
+    match["_match number"] = i + 1
+    for team in match["teams"]:
+      team["team score"] = sum([player['score'] for player in team["players"]])
+  return yml
+
+def modifyFile(path):
+   yaml_dump = None
+   with open(path, 'r') as stream:
+       try:
+            parsed = yaml.safe_load(stream)
+            newYaml = modifyJson(parsed)
+            yaml_dump = yaml.dump(newYaml)
+            # print(yaml_dump)
+       except yaml.YAMLError as exc:
+           print(exc)
+           print("NOT YAML")
+       with open(path, 'w') as stream:
+           try:
+               stream.write(yaml_dump)
+           except yaml.YAMLError as exc:
+               print("could not write")
 
 class MyHandler(PatternMatchingEventHandler):
    patterns = ["*" + CURRENT_TEAM_FILENAME]
 
    def on_modified(self, event):
        # print(event.src_path, event.event_type)
-       with open(event.src_path, 'r') as stream:
-           try:
-                parsed = yaml.safe_load(stream)
-                newYaml = modifyYaml(parsed)
-
-           except yaml.YAMLError as exc:
-               print(exc)
-               print("NOT YAML")
-
+       modifyFile(event.src_path)
 
 if __name__ == "__main__":
+  modifyFile("text_files/" + CURRENT_TEAM_FILENAME)
+
+if __name__ == "__main__" and False:
     observer = Observer()
     observer.schedule(MyHandler(), path=sys.argv[1] if len(sys.argv) > 1 else 'text_files')
     observer.start()
