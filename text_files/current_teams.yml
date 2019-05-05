@@ -1,0 +1,13 @@
+night name: test halo VX
+matches:
+  - members:
+      - name: Clay
+        score: 10
+      - name: Jeff
+        score: 11
+    isJeffsRoom: true
+  - members:
+      - name: Craig
+        score: 12
+      - name: Michael
+        score: 7
