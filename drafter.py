@@ -45,6 +45,7 @@ class MyHandler(PatternMatchingEventHandler):
 if __name__ == "__main__":
   modifyFile("text_files/" + CURRENT_TEAM_FILENAME)
 
+# if __name__ == "__main__":
 if __name__ == "__main__" and False:
     observer = Observer()
     observer.schedule(MyHandler(), path=sys.argv[1] if len(sys.argv) > 1 else 'text_files')
@@ -52,7 +53,7 @@ if __name__ == "__main__" and False:
 
     try:
         while True:
-            time.sleep(1)
+            time.sleep(4)
     except KeyboardInterrupt:
         observer.stop()
 
