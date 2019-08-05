@@ -4,32 +4,32 @@ matches:
   - isJeffsRoom: true
     players:
     - name: Carmine
-      score: 8
+      score: 10
     - name: Cousin Jake
       score: 13
     - name: Alex Mark
-      score: 14
-    - name: Bryan
-      score: 18
-    - name: Michael
       score: 16
+    - name: Bryan
+      score: 19
+    - name: Michael
+      score: 18
     - name: Craig
-      score: 24
-    team score: 93
+      score: 26
+    team score: 102
   - players:
     - name: Clay
-      score: 20
+      score: 21
     - name: Jeff
-      score: 22
+      score: 23
     - name: Sebastian
-      score: 16
+      score: 17
     - name: Alex b
-      score: 15
-    - name: Jack Rogersss
       score: 13
+    - name: Jack Rogersss
+      score: 12
     - name: Mac
       score: 11
     - name: Trevor
       score: 8
-    team score: 103
-night name: before halo night 8/3
+    team score: 105
+night name: after halo night 8/3
