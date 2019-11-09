@@ -16,6 +16,7 @@ def modifyJson(yml):
     match["_match number"] = i + 1
     for team in match["teams"]:
       team["team score"] = sum([player['score'] for player in team["players"]])
+      team['team num_players'] = len(team['players'])
   return yml
 
 def modifyFile(path):
