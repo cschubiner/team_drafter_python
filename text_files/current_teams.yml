@@ -3,42 +3,32 @@ matches:
   teams:
   - isJeffsRoom: true
     players:
-    - name: Carmine
-      score: 10
-    - name: Derek
-      score: 11
-    - name: Bryan
-      score: 19
-    - name: Michael
-      score: 18
-    - name: Jeff
-      score: 23
-    - name: Alex Roe
-      score: 21
-    - name: Eli
-      score: 22
-    - name: Oliver
-      score: 10
+    - name: Carmine 10
+    - name: Derek 11
+    - name: Bryan 19
+    - name: Michael 18
+    - name: Jeff 23
+    - name: Alex Roe 21
+    - name: Eli 22
+    - name: Oliver 10
     team num_players: 8
     team score: 134
   - players:
-    - name: Clay
-      score: 21
-    - name: Craig
-      score: 26
-    - name: Big Jake
-      score: 16
-    - name: Alex b
-      score: 13
-    - name: Liam
-      score: 15
-    - name: Zach Costa
-      score: 11
-    - name: Alex Mark
-      score: 16
-    - name: Rohit
-      score: 7
+    - name: Clay 21
+    - name: Craig 26
+    - name: Big Jake 16
+    - name: Alex b 13
+    - name: Liam 15
+    - name: Zach Costa 11
+    - name: Alex Mark 16
+    - name: Rohit 7
     team num_players: 8
     team score: 125
 night name: halo lan 11 pro -- 11/8
 z_fair_way_to_pick_teams: a1, b1, a1, b2, a1
+zzz_not_playing:
+  z:
+    z:
+    - name: Trevor 8
+    - name: zzzzzzzzzzzz
+    - name: zzzzzzzzzzzz
