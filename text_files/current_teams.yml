@@ -18,8 +18,8 @@ matches:
     - name: Craig 26
     - name: Big Jake 16
     - name: Alex b 14
-    - name: Liam 12
-    - name: Zach Costa 11
+    - name: Liam 11
+    - name: Zach Costa 12
     - name: Alex Mark 16
     - name: Rohit 7
     team num_players: 8
@@ -32,7 +32,9 @@ zzz_not_playing:
     - name: Trevor 8
     - name: Rishi 6
     - name: Josh 8
+    - name: Mike Sha 11
     - name: Sebastian 16
-    - name: Jay 16
+    - name: Jay 17
+    - name: David Strickland 10
     - name: zzzzzzzzzzzz
     - name: zzzzzzzzzzzz
