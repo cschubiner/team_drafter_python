@@ -3,26 +3,26 @@ matches:
   teams:
   - isJeffsRoom: true
     players:
-    - name: Jeff 23
+    - name: Jeff 24
     - name: David Strickland 16
     - name: Trevor 8
     - name: Carmine 10
     - name: Michael 19
-    - name: Craig 26
-    - name: Alex b 14
+    - name: Craig 28
+    - name: Alex b 16
     team num_players: 7
-    team score: 110
+    team score: 120
   - players:
     - name: Clay 21
     - name: Rishi 6
     - name: Bryan 18
-    - name: Eli 20
+    - name: Eli 19
     - name: Josh 12
     - name: Mike Sha 11
     - name: Liam 11
     - name: Sebastian 15
     team num_players: 8
-    team score: 111
+    team score: 113
 night name: halo lan 12 leap day 2/29/2020
 z_fair_way_to_pick_teams: a1, b1, a1, b2, a1
 zzz_not_playing:
