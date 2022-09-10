@@ -13,11 +13,18 @@ CURRENT_TEAM_FILENAME: str = "current_teams.yml"
 
 
 def modifyJson(yml):
+    player_to_score = {}
     for i, match in enumerate(yml["matches"]):
         match["_match number"] = i + 1
         for team in match["teams"]:
-            team["team score"] = sum([int(player['name'].split(' ')[-1]) for player in team["players"]])
+            # team["team score"] = sum([int(player['name'].split(' ')[-1]) for player in team["players"]])
+            # team['team num_players'] = len(team['players'])
+            for player in team["players"]:
+                player_to_score[player['name']] = int(player['name'].split(' ')[-1])
+        for i, team in enumerate(match["teams"]):
+            team["team score"] = sum([player_to_score[player['name']] for player in team["players"]])
             team['team num_players'] = len(team['players'])
+            team['team number'] = i + 1
     return yml
 
 
