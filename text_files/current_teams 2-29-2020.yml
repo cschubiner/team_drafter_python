@@ -1,0 +1,40 @@
+matches:
+- _match number: 1
+  teams:
+  - isJeffsRoom: true
+    players:
+    - name: Jeff 24
+    - name: David Strickland 18
+    - name: Trevor 8
+    - name: Carmine 10
+    - name: Michael 19
+    - name: Craig 28
+    - name: Alex b 16
+    team num_players: 7
+    team score: 123
+  - players:
+    - name: Clay 21
+    - name: Rishi 6
+    - name: Bryan 18
+    - name: Eli 19
+    - name: Josh 12
+    - name: Mike Sha 11
+    - name: Liam 11
+    - name: Sebastian 15
+    team num_players: 8
+    team score: 113
+night name: halo lan 12 leap day 2/29/2020
+z_fair_way_to_pick_teams: a1, b1, a1, b2, a1
+zzz_not_playing:
+  z:
+    z:
+    - name: Big Jake 16
+    - name: Zach Costa 12
+    - name: Alex Mark 16
+    - name: Rohit 7
+    - name: Alex Roe 21
+    - name: Derek 11
+    - name: Oliver 10
+    - name: Jay 17
+    - name: zzzzzzzzzzzz
+    - name: zzzzzzzzzzzz
