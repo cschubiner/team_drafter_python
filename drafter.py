@@ -45,10 +45,14 @@ def modifyJson(yml):
         team1 = []
         team2 = []
         # First put half of the players on team 1
-        for j in range(total_players // 2):
+        # num_players_on_team_1 = total_players // 2
+        # Choose a random number of players on team 1 which is +- 1 of the other team
+        num_players_on_team_1 = random.randint(total_players // 2 - 1, total_players // 2 + 1)
+
+        for j in range(num_players_on_team_1):
             team1.append(players_and_scores[j])
         # Then put the remaining on team 2
-        for j in range(total_players // 2, total_players):
+        for j in range(num_players_on_team_1, total_players):
             team2.append(players_and_scores[j])
         # Now, calculate the score delta
         team1_score = sum([x[1] for x in team1])
@@ -63,6 +67,11 @@ def modifyJson(yml):
             print("Team 1 (score: {} #players: {}): {}".format(team1_score, len(team1), sorted(team1, key=lambda x: x[1], reverse=True)))
             print("Team 2 (score: {} #players: {}): {}".format(team2_score, len(team2), sorted(team2, key=lambda x: x[1], reverse=True)))
 
+    for match in yml["matches"]:
+        match["proposed_team_1"] = [x[0] for x in best_team1]
+        match["proposed_team_2"] = [x[0] for x in best_team2]
+        match["proposed_team_1_score"] = sum([x[1] for x in best_team1])
+        match["proposed_team_2_score"] = sum([x[1] for x in best_team2])
 
     return yml
 
