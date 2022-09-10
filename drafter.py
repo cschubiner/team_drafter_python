@@ -38,6 +38,7 @@ def modifyJson(yml):
     import random
 
     best_min_score_delta = 999
+    already_seen_teams = set()
 
     # Choose 100 random teams
     for i in range(100):
@@ -54,11 +55,19 @@ def modifyJson(yml):
         # Then put the remaining on team 2
         for j in range(num_players_on_team_1, total_players):
             team2.append(players_and_scores[j])
+
+        # Add team1 to the already seen teams
+        # First sort the team by score
+        already_seen_key = tuple(sorted(team1, key=lambda x: x[1], reverse=True))
+        if already_seen_key in already_seen_teams:
+            continue
+        already_seen_teams.add(already_seen_key)
+
         # Now, calculate the score delta
         team1_score = sum([x[1] for x in team1])
         team2_score = sum([x[1] for x in team2])
         score_delta = abs(team1_score - team2_score)
-        if score_delta < best_min_score_delta:
+        if score_delta <= best_min_score_delta:
             best_min_score_delta = score_delta
             best_team1 = team1
             best_team2 = team2
@@ -68,8 +77,8 @@ def modifyJson(yml):
             print("Team 2 (score: {} #players: {}): {}".format(team2_score, len(team2), sorted(team2, key=lambda x: x[1], reverse=True)))
 
     for match in yml["matches"]:
-        match["proposed_team_1"] = [x[0] for x in best_team1]
-        match["proposed_team_2"] = [x[0] for x in best_team2]
+        match["proposed_team_1"] = [x[0] for x in sorted(best_team1, key=lambda x: x[1], reverse=True)]
+        match["proposed_team_2"] = [x[0] for x in sorted(best_team2, key=lambda x: x[1], reverse=True)]
         match["proposed_team_1_score"] = sum([x[1] for x in best_team1])
         match["proposed_team_2_score"] = sum([x[1] for x in best_team2])
 

@@ -1,23 +1,23 @@
 matches:
 - _match number: 1
   proposed_team_1:
-  - jeff_grimes  10
-  - eli_wald  8
-  - trevor_assaf 5
+  - clayton_schubiner 9
   - sebastian_boberg  7
-  - michael_arbeed  8
+  - alex_roe 7
+  - jack_rogers  6
   - jake_racich  6
   - andrew_carmine 5
-  proposed_team_1_score: 49
-  proposed_team_2:
+  - trevor_assaf 5
   - alex_b 5
-  - jason_leung 4
+  proposed_team_1_score: 50
+  proposed_team_2:
   - craig_collins 12
-  - clayton_schubiner 9
-  - alex_roe 7
+  - jeff_grimes  10
+  - michael_arbeed  8
+  - eli_wald  8
   - jake_leichtling  7
-  - jack_rogers  6
-  proposed_team_2_score: 50
+  - jason_leung 4
+  proposed_team_2_score: 49
   teams:
   - isJeffsRoom: true
     players:
