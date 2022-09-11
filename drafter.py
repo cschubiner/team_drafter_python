@@ -67,14 +67,17 @@ def modifyJson(yml):
         team1_score = sum([x[1] for x in team1])
         team2_score = sum([x[1] for x in team2])
         score_delta = abs(team1_score - team2_score)
+
+
         if score_delta <= best_min_score_delta:
             best_min_score_delta = score_delta
             best_team1 = team1
             best_team2 = team2
             print("New best team found with score delta of {}".format(score_delta))
             # Print with teams sorted by score
-            print("Team 1 (score: {} #players: {}): {}".format(team1_score, len(team1), sorted(team1, key=lambda x: x[1], reverse=True)))
-            print("Team 2 (score: {} #players: {}): {}".format(team2_score, len(team2), sorted(team2, key=lambda x: x[1], reverse=True)))
+            print("Team 1 (score: {} #players: {}): {}".format(team1_score, len(team1), [x[0] for x in sorted(team1, key=lambda x: x[1], reverse=True)]))
+            print("Team 2 (score: {} #players: {}): {}".format(team2_score, len(team2), [x[0] for x in sorted(team2, key=lambda x: x[1], reverse=True)]))
+            # print a message of congratulations
 
     for match in yml["matches"]:
         match["proposed_team_1"] = [x[0] for x in sorted(best_team1, key=lambda x: x[1], reverse=True)]
