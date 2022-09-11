@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+from typing import Dict, Any
 
 import yaml
 import sys
@@ -13,14 +14,14 @@ CURRENT_TEAM_FILENAME: str = "current_teams.yml"
 
 
 def modifyJson(yml):
-    player_to_score = {}
+    player_to_score: dict[str, float] = {}
     for i, match in enumerate(yml["matches"]):
         match["_match number"] = i + 1
         for team in match["teams"]:
-            # team["team score"] = sum([int(player['name'].split(' ')[-1]) for player in team["players"]])
+            # team["team score"] = sum([float(player['name'].split(' ')[-1]) for player in team["players"]])
             # team['team num_players'] = len(team['players'])
             for player in team["players"]:
-                player_to_score[player['name']] = int(player['name'].split(' ')[-1])
+                player_to_score[player['name']] = float(player['name'].split(' ')[-1])
         for i, team in enumerate(match["teams"]):
             team["team score"] = sum([player_to_score[player['name']] for player in team["players"]])
             team['team num_players'] = len(team['players'])

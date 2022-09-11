@@ -6,13 +6,13 @@ matches:
     - name: jeff_grimes  11
     - name: clayton_schubiner 10
     - name: alex_b 8
-    - name: michael_arbeed 9
+    - name: michael_arbeed 8.5
     - name: jack_rogers  6
-    - name: jake_racich  6
+    - name: jake_racich  6.5
     - name: cole 4
     team num_players: 7
     team number: 1
-    team score: 54
+    team score: 54.0
   - players:
     - name: jake_leichtling  8
     - name: eli_wald  9
@@ -20,23 +20,22 @@ matches:
     - name: craig_collins 12
     - name: jason_leung 2
     - name: alex_roe 9
-    - name: trevor_assaf 5
-    team num_players: 7
+    team num_players: 6
     team number: 2
-    team score: 52
+    team score: 47.0
 night name: halo lan covid 2 -- 9/10/22
 z_fair_way_to_pick_teams: a1, b1, a1, b2, a1
 zzz_not_playing:
   z:
     z:
+    - name: trevor_assaf 5
     - name: steve 6
     - name: andrew_carmine 5
     - name: Zach Costa 12
-    - name: Alex Mark 16
-    - name: Rohit 7
-    - name: Alex Roe 21
-    - name: Derek 11
-    - name: Oliver 10
-    - name: Jay 17
+    - name: Alex Mark 7
+    - name: Rohit 3
+    - name: Derek 5
+    - name: Oliver 4.5
+    - name: Jay 7
     - name: zzzzzzzzzzzz
     - name: zzzzzzzzzzzz
