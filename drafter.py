@@ -79,11 +79,11 @@ def modifyJson(yml):
             print("Team 2 (score: {} #players: {}): {}".format(team2_score, len(team2), [x[0] for x in sorted(team2, key=lambda x: x[1], reverse=True)]))
             # print a message of congratulations
 
-    for match in yml["matches"]:
-        match["proposed_team_1"] = [x[0] for x in sorted(best_team1, key=lambda x: x[1], reverse=True)]
-        match["proposed_team_2"] = [x[0] for x in sorted(best_team2, key=lambda x: x[1], reverse=True)]
-        match["proposed_team_1_score"] = sum([x[1] for x in best_team1])
-        match["proposed_team_2_score"] = sum([x[1] for x in best_team2])
+    # for match in yml["matches"]:
+    #     match["proposed_team_1"] = [x[0] for x in sorted(best_team1, key=lambda x: x[1], reverse=True)]
+    #     match["proposed_team_2"] = [x[0] for x in sorted(best_team2, key=lambda x: x[1], reverse=True)]
+    #     match["proposed_team_1_score"] = sum([x[1] for x in best_team1])
+    #     match["proposed_team_2_score"] = sum([x[1] for x in best_team2])
 
     return yml
 

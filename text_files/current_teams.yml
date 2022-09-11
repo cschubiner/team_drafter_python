@@ -1,48 +1,29 @@
 matches:
 - _match number: 1
-  proposed_team_1:
-  - jeff_grimes  10
-  - michael_arbeed  8
-  - alex_roe 8
-  - sebastian_boberg  7
-  - jake_leichtling  7
-  - jack_rogers  6
-  - jason_leung 4
-  proposed_team_1_score: 50
-  proposed_team_2:
-  - craig_collins 12
-  - clayton_schubiner 9
-  - eli_wald  8
-  - alex_b 6
-  - jake_racich  6
-  - trevor_assaf 5
-  - cole 4
-  proposed_team_2_score: 50
   teams:
   - isJeffsRoom: true
     players:
-    - name: jeff_grimes  10
-    - name: clayton_schubiner 9
-    - name: michael_arbeed  8
-    - name: alex_b 6
-    - name: michael_arbeed  8
+    - name: jeff_grimes  11
+    - name: clayton_schubiner 10
+    - name: alex_b 8
+    - name: michael_arbeed 9
     - name: jack_rogers  6
     - name: jake_racich  6
     - name: cole 4
-    team num_players: 8
+    team num_players: 7
     team number: 1
-    team score: 57
+    team score: 54
   - players:
-    - name: eli_wald  8
+    - name: jake_leichtling  8
+    - name: eli_wald  9
     - name: sebastian_boberg  7
-    - name: jake_leichtling  7
     - name: craig_collins 12
-    - name: alex_roe 8
-    - name: jason_leung 6
+    - name: jason_leung 2
+    - name: alex_roe 9
     - name: trevor_assaf 5
     team num_players: 7
     team number: 2
-    team score: 51
+    team score: 52
 night name: halo lan covid 2 -- 9/10/22
 z_fair_way_to_pick_teams: a1, b1, a1, b2, a1
 zzz_not_playing:
