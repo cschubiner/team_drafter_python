@@ -1,11 +1,10 @@
 matches:
 - _match number: 1
   teams:
-  - isJeffsRoom: true
-    players:
-    - name: jeff_grimes  11
+  - players:
+    - name: jeff_grimes  10.75
     - name: clayton_schubiner 10
-    - name: alex_b 8
+    - name: alex_b 8.25
     - name: michael_arbeed 8.5
     - name: jack_rogers  6
     - name: jake_racich  6.5
@@ -15,20 +14,20 @@ matches:
     team score: 54.0
   - players:
     - name: jake_leichtling  8
-    - name: eli_wald  9
+    - name: eli_wald  9.25
     - name: sebastian_boberg  7
     - name: craig_collins 12
     - name: jason_leung 2
-    - name: alex_roe 9
-    team num_players: 6
+    - name: alex_roe 9.25
+    - name: trevor_assaf 5
+    team num_players: 7
     team number: 2
-    team score: 47.0
+    team score: 52.5
 night name: halo lan covid 2 -- 9/10/22
 z_fair_way_to_pick_teams: a1, b1, a1, b2, a1
 zzz_not_playing:
   z:
     z:
-    - name: trevor_assaf 5
     - name: steve 6
     - name: andrew_carmine 5
     - name: Zach Costa 12
