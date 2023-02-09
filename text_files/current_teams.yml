@@ -2,35 +2,41 @@ matches:
 - _match number: 1
   teams:
   - players:
-    - name: jeff_grimes  10.75
-    - name: clayton_schubiner 10
-    - name: alex_b 8.25
-    - name: michael_arbeed 8.5
-    - name: jack_rogers  6
-    - name: jake_racich  6.5
-    - name: cole 4
+    - name: alex_b 9
+    - name: alex_roe 10
+    - name: clayton_schubiner 10.75
+    - name: craig_collins 12.75
+    - name: eli_wald  10
+    - name: jack_rogers  6.5
+    - name: jake_leichtling  8.75
     team num_players: 7
     team number: 1
-    team score: 54.0
+    team score: 67.75
   - players:
-    - name: jake_leichtling  8
-    - name: eli_wald  9.25
-    - name: sebastian_boberg  7
-    - name: craig_collins 12
-    - name: jason_leung 1
-    - name: alex_roe 9.25
+    - name: liam_kinney 5.5
+    - name: jeff_grimes  11.5
+    - name: michael_arbeed 9.25
+    - name: michael_hess 5.5
+    - name: moe_koelueker 5.5
+    - name: jeremy_leff 7.5
+    - name: steven_safreno 6.5
+    - name: steven_coffrey 6.5
     - name: trevor_assaf 5
-    team num_players: 7
+    team num_players: 9
     team number: 2
-    team score: 52.5
+    team score: 62.75
 night name: halo lan covid 2 -- 9/10/22
 z_fair_way_to_pick_teams: a1, b1, a1, b2, a1
 zzz_not_playing:
   z:
     z:
-    - name: steve 6
+    - name: jason_leung 1
     - name: andrew_carmine 5
+    - name: sebastian_boberg  7.75
+    - name: steve 6
     - name: Zach Costa 12
+    - name: cole 4
+    - name: jake_racich  6.5
     - name: Alex Mark 7
     - name: Rohit 3
     - name: Derek 5
