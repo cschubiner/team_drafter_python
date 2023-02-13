@@ -3,9 +3,9 @@ matches:
   teams:
   - players:
     - name: alex_roe 10
-    - name: clayton_schubiner 10.75
-    - name: craig_collins 12.75
-    - name: jack_rogers  7.5
+    - name: clayton_schubiner 10.75 B
+    - name: craig_collins 12.75 A
+    - name: jack_rogers  7.5 A
     - name: jack_shepherd  7.75
     - name: jake_leichtling  8.75
     team num_players: 6
@@ -13,16 +13,16 @@ matches:
     team score: 57.5
   - players:
     - name: liam_kinney 5.75
-    - name: steven_safreno 6.5
-    - name: jeff_grimes  11.25
-    - name: michael_arbeed 9.5
+    - name: steven_safreno 6.5 B
+    - name: jeff_grimes  11.25 A
+    - name: michael_arbeed 9.5 A
     - name: steven_coffrey 5.5
-    - name: eli_wald  10.75
+    - name: eli_wald  10.75 A
     - name: andrew_carmine 5.5
-    - name: alex_b_and_gunner_boost 12.25
+    - name: alex_b_and_gunner_boost 12.25 B
     team num_players: 8
     team number: 2
-    team score: 67.75
+    team score: 67.0
 night name: halo lan covid 2 -- 9/10/22
 z_fair_way_to_pick_teams: a1, b1, a1, b2, a1
 zzz_not_playing:

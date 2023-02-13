@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+from collections import defaultdict
 from typing import Dict, Any
 
 import yaml
@@ -15,13 +16,20 @@ CURRENT_TEAM_FILENAME: str = "current_teams.yml"
 
 def modifyJson(yml):
     player_to_score: dict[str, float] = {}
+    forced_team_to_player_names = defaultdict(list)
     for i, match in enumerate(yml["matches"]):
         match["_match number"] = i + 1
         for team in match["teams"]:
             # team["team score"] = sum([float(player['name'].split(' ')[-1]) for player in team["players"]])
             # team['team num_players'] = len(team['players'])
             for player in team["players"]:
-                player_to_score[player['name']] = float(player['name'].split(' ')[-1])
+                name_split = player['name'].split(' ')
+                # remove any empty strings from the split
+                name_split = [x for x in name_split if x]
+                player_to_score[player['name']] = float(name_split[1])
+                if len(name_split) == 3:
+                    # this is the forced team name
+                    forced_team_to_player_names[name_split[2]].append(player['name'])
         for i, team in enumerate(match["teams"]):
             team["team score"] = sum([player_to_score[player['name']] for player in team["players"]])
             team['team num_players'] = len(team['players'])
@@ -42,20 +50,35 @@ def modifyJson(yml):
     already_seen_teams = set()
 
     # Choose 100 random teams
-    for i in range(100):
+    for i in range(150):
         random.shuffle(players_and_scores)
         team1 = []
         team2 = []
+        # first, assert that there are only up to 2 forced teams
+        assert len(forced_team_to_player_names) <= 2
+        forced_teams = list(forced_team_to_player_names.values())
+        # assign the first forced team to team1
+        if len(forced_teams) > 0:
+            team1 = [x for x in players_and_scores if x[0] in forced_teams[0]]
+        # assign the second forced team to team2
+        if len(forced_teams) > 1:
+            team2 = [x for x in players_and_scores if x[0] in forced_teams[1]]
+
+
         # First put half of the players on team 1
         # num_players_on_team_1 = total_players // 2
         # Choose a random number of players on team 1 which is +- 1 of the other team
         num_players_on_team_1 = random.randint(total_players // 2 - 1, total_players // 2 + 1)
 
-        for j in range(num_players_on_team_1):
-            team1.append(players_and_scores[j])
-        # Then put the remaining on team 2
-        for j in range(num_players_on_team_1, total_players):
-            team2.append(players_and_scores[j])
+        while len(team1) < num_players_on_team_1:
+            # make sure we don't add a player that is already on team 1
+            for player in players_and_scores:
+                if player not in team1 and player not in team2:
+                    team1.append(player)
+                    break
+
+        # Now, put the rest of the players on team 2
+        team2 = [x for x in players_and_scores if x not in team1]
 
         # Add team1 to the already seen teams
         # First sort the team by score
