@@ -19,7 +19,7 @@ matches:
     - name: steven_coffrey 5.5
     - name: eli_wald  10.75 A
     - name: andrew_carmine 5.5
-    - name: alex_b_and_gunner_boost 12.25 B
+    - name: alex_b_and_gunner_boost 14 B
     team num_players: 8
     team number: 2
     team score: 67.0
@@ -32,7 +32,7 @@ zzz_not_playing:
     - name: moe_koelueker 2.5
     - name: jeremy_leff 8.5
     - name: trevor_assaf 5
-    - name: jason_leung 1
+    - name: jason_leung -1.75
     - name: sebastian_boberg  7.75
     - name: steve 6
     - name: Zach Costa 12
