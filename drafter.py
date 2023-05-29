@@ -15,25 +15,7 @@ CURRENT_TEAM_FILENAME: str = "current_teams.yml"
 
 
 def modifyJson(yml):
-    player_to_score: dict[str, float] = {}
-    forced_team_to_player_names = defaultdict(list)
-    for i, match in enumerate(yml["matches"]):
-        match["_match number"] = i + 1
-        for team in match["teams"]:
-            # team["team score"] = sum([float(player['name'].split(' ')[-1]) for player in team["players"]])
-            # team['team num_players'] = len(team['players'])
-            for player in team["players"]:
-                name_split = player['name'].split(' ')
-                # remove any empty strings from the split
-                name_split = [x for x in name_split if x]
-                player_to_score[player['name']] = float(name_split[1])
-                if len(name_split) == 3:
-                    # this is the forced team name
-                    forced_team_to_player_names[name_split[2]].append(player['name'])
-        for i, team in enumerate(match["teams"]):
-            team["team score"] = sum([player_to_score[player['name']] for player in team["players"]])
-            team['team num_players'] = len(team['players'])
-            team['team number'] = i + 1
+    forced_team_to_player_names, player_to_score = read_yml(yml)
 
     # Also, add in "proposed_team_1" and "proposed_team_2" to each match
     # Create the proposed teams by enumerating all possible combinations of players
@@ -114,6 +96,29 @@ def modifyJson(yml):
     #     match["proposed_team_2_score"] = sum([x[1] for x in best_team2])
 
     return yml
+
+
+def read_yml(yml):
+    player_to_score: dict[str, float] = {}
+    forced_team_to_player_names = defaultdict(list)
+    for i, match in enumerate(yml["matches"]):
+        match["_match number"] = i + 1
+        for team in match["teams"]:
+            # team["team score"] = sum([float(player['name'].split(' ')[-1]) for player in team["players"]])
+            # team['team num_players'] = len(team['players'])
+            for player in team["players"]:
+                name_split = player['name'].split(' ')
+                # remove any empty strings from the split
+                name_split = [x for x in name_split if x]
+                player_to_score[player['name']] = float(name_split[1])
+                if len(name_split) == 3:
+                    # this is the forced team name
+                    forced_team_to_player_names[name_split[2]].append(player['name'])
+        for i, team in enumerate(match["teams"]):
+            team["team score"] = sum([player_to_score[player['name']] for player in team["players"]])
+            team['team num_players'] = len(team['players'])
+            team['team number'] = i + 1
+    return forced_team_to_player_names, player_to_score
 
 
 def modifyFile(path):
