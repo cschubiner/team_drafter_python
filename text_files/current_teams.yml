@@ -3,39 +3,41 @@ matches:
   teams:
   - players:
     - name: alex_roe 10
-    - name: clayton_schubiner 10.75 B
+    - name: clayton_schubiner 10.75
     - name: craig_collins 12.75 A
-    - name: jack_rogers  7.5 A
-    - name: jack_shepherd  7.75
     - name: jake_leichtling  8.75
-    team num_players: 6
+    team num_players: 4
     team number: 1
-    team score: 57.5
+    team score: 42.25
   - players:
-    - name: liam_kinney 5.75
-    - name: steven_safreno 6.5 B
     - name: jeff_grimes  11.25 A
-    - name: michael_arbeed 9.5 A
-    - name: steven_coffrey 5.5
-    - name: eli_wald  10.75 A
+    - name: michael_arbeed 9.5
+    - name: arthur_orchanian 9.5
+    - name: eli_wald  10.75
+    - name: alex_b_and_gunner_boost 14 A
     - name: andrew_carmine 5.5
-    - name: alex_b_and_gunner_boost 14 B
+    - name: trevor_assaf 4.5
+    - name: jack_shepherd  7.75
     team num_players: 8
     team number: 2
-    team score: 67.0
+    team score: 72.75
 night name: halo lan covid 2 -- 9/10/22
 z_fair_way_to_pick_teams: a1, b1, a1, b2, a1
 zzz_not_playing:
   z:
     z:
+    - name: jason_leung -1.5
+    - name: liam_kinney 5.75
+    - name: elliot_boschwitz 5.75
+    - name: steven_safreno 6.5
+    - name: jeremy_leff 8.25
+    - name: moe_koelueker 3.25
+    - name: jack_rogers  7.5
+    - name: Zach_Costa 8
+    - name: steven_coffrey 5.5
     - name: michael_hess 5.5
-    - name: moe_koelueker 2.5
-    - name: jeremy_leff 8.5
-    - name: trevor_assaf 5
-    - name: jason_leung -1.75
     - name: sebastian_boberg  7.75
     - name: steve 6
-    - name: Zach Costa 12
     - name: cole 4
     - name: jake_racich  6.5
     - name: Alex Mark 7

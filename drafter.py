@@ -50,7 +50,7 @@ def modifyJson(yml):
     already_seen_teams = set()
 
     # Choose 100 random teams
-    for i in range(150):
+    for i in range(10250):
         random.shuffle(players_and_scores)
         team1 = []
         team2 = []
@@ -82,7 +82,9 @@ def modifyJson(yml):
 
         # Add team1 to the already seen teams
         # First sort the team by score
-        already_seen_key = tuple(sorted(team1, key=lambda x: x[1], reverse=True))
+        # already_seen_key = tuple(sorted(team1, key=lambda x: x[1], reverse=True))
+        # First sort the team by score first, name second
+        already_seen_key = tuple(sorted(team1, key=lambda x: (x[1], x[0]), reverse=True))
         if already_seen_key in already_seen_teams:
             continue
         already_seen_teams.add(already_seen_key)
@@ -93,8 +95,10 @@ def modifyJson(yml):
         score_delta = abs(team1_score - team2_score)
 
 
-        if score_delta <= best_min_score_delta:
-            best_min_score_delta = score_delta
+        team_size_tiny_delta = abs(len(team1) - len(team2)) * 0.0001
+        if score_delta + team_size_tiny_delta <= best_min_score_delta:
+        # if score_delta <= best_min_score_delta and abs(len(team1) - len(team2)) < 2:
+            best_min_score_delta = score_delta + team_size_tiny_delta
             best_team1 = team1
             best_team2 = team2
             print("New best team found with score delta of {}".format(score_delta))
