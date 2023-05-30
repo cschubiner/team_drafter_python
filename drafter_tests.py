@@ -103,3 +103,95 @@ class TestModifyJson(unittest.TestCase):
                 "['player1 A', 'player2 A']",
             ]
             assert best_team2 in ["['player4 B', 'player3']", "['player3', 'player4 B']"]
+
+    def test_modifyJson_with_uneven_players(self):
+        player_scores = {
+            "player1": 5,
+            "player2": 5,
+            "player3": 6,
+            "player4": 6,
+            "player5": 11,
+            "player6": 9
+        }
+
+        yaml_match_configuration = {
+            "matches": [
+                {
+                    "_match number": 1,
+                    "teams": [
+                        {
+                            "players": [
+                                {"name": "player1 A"},
+                                {"name": "player2 A"},
+                            ]
+                        },
+                        {
+                            "players": [
+                                {"name": "player3"},
+                                {"name": "player4 B"},
+                                {"name": "player5"},
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+
+        with mock.patch('json.load', return_value=player_scores):
+            f = StringIO()
+            with redirect_stdout(f):
+                modifyJson(yaml_match_configuration)
+
+            output = f.getvalue().strip().split('\n')
+            best_team1 = output[-2].split(': ')[-1]
+            best_team2 = output[-1].split(': ')[-1]
+
+            # Expected that the teams will still be balanced
+            assert len(eval(best_team1)) in [2, 3]
+            assert len(eval(best_team2)) in [2, 3]
+
+    def test_modifyJson_with_equal_scores(self):
+        player_scores = {
+            "player1": 5,
+            "player2": 5,
+            "player3": 5,
+            "player4": 5,
+            "player5": 5,
+            "player6": 5
+        }
+
+        yaml_match_configuration = {
+            "matches": [
+                {
+                    "_match number": 1,
+                    "teams": [
+                        {
+                            "players": [
+                                {"name": "player1 A"},
+                                {"name": "player2 A"},
+                            ]
+                        },
+                        {
+                            "players": [
+                                {"name": "player3"},
+                                {"name": "player4 B"},
+                                {"name": "player5"},
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+
+        with mock.patch('json.load', return_value=player_scores):
+            f = StringIO()
+            with redirect_stdout(f):
+                modifyJson(yaml_match_configuration)
+
+            output = f.getvalue().strip().split('\n')
+            best_team1 = output[-2].split(': ')[-1]
+            best_team2 = output[-1].split(': ')[-1]
+
+            # Even though the scores are equal, the script should still try to balance player numbers
+            assert len(eval(best_team1)) in [2, 3]
+            assert len(eval(best_team2)) in [2, 3]
