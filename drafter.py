@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+import json
 from collections import defaultdict
 from typing import Dict, Any
 
@@ -32,7 +33,7 @@ def modifyJson(yml):
     already_seen_teams = set()
 
     # Choose 100 random teams
-    for i in range(10250):
+    for i in range(30250):
         random.shuffle(players_and_scores)
         team1 = []
         team2 = []
@@ -99,25 +100,32 @@ def modifyJson(yml):
 
 
 def read_yml(yml):
+    # Load player scores from json
+    with open('player_scores.json', 'r') as f:
+        player_scores = json.load(f)
+
     player_to_score: dict[str, float] = {}
     forced_team_to_player_names = defaultdict(list)
+
     for i, match in enumerate(yml["matches"]):
         match["_match number"] = i + 1
         for team in match["teams"]:
-            # team["team score"] = sum([float(player['name'].split(' ')[-1]) for player in team["players"]])
-            # team['team num_players'] = len(team['players'])
             for player in team["players"]:
                 name_split = player['name'].split(' ')
                 # remove any empty strings from the split
                 name_split = [x for x in name_split if x]
-                player_to_score[player['name']] = float(name_split[1])
-                if len(name_split) == 3:
+                player_to_score[player['name']] = float(player_scores[name_split[0]])
+                if len(name_split) == 2:
                     # this is the forced team name
-                    forced_team_to_player_names[name_split[2]].append(player['name'])
+                    forced_team_to_player_names[name_split[1]].append(player['name'])
+
         for i, team in enumerate(match["teams"]):
-            team["team score"] = sum([player_to_score[player['name']] for player in team["players"]])
+            team["team score"] = sum(
+                player_to_score[player['name']] for player in team["players"]
+            )
             team['team num_players'] = len(team['players'])
             team['team number'] = i + 1
+
     return forced_team_to_player_names, player_to_score
 
 

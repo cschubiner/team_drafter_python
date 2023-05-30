@@ -2,48 +2,48 @@ matches:
 - _match number: 1
   teams:
   - players:
-    - name: alex_roe 10
-    - name: clayton_schubiner 10.75
-    - name: craig_collins 12.75 A
-    - name: jake_leichtling  8.75
+    - name: alex_roe
+    - name: clayton_schubiner A
+    - name: craig_collins A
+    - name: jake_leichtling
     team num_players: 4
     team number: 1
     team score: 42.25
   - players:
-    - name: jeff_grimes  11.25 A
-    - name: michael_arbeed 9.5
-    - name: arthur_orchanian 9.5
-    - name: eli_wald  10.75
-    - name: alex_b_and_gunner_boost 14 A
-    - name: andrew_carmine 5.5
-    - name: trevor_assaf 4.5
-    - name: jack_shepherd  7.75
+    - name: jeff_grimes B
+    - name: michael_arbeed B
+    - name: arthur_orchanian
+    - name: eli_wald B
+    - name: alex_b_and_gunner_boost B
+    - name: andrew_carmine
+    - name: trevor_assaf
+    - name: jack_shepherd
     team num_players: 8
     team number: 2
     team score: 72.75
-night name: halo lan covid 2 -- 9/10/22
+night name: halo
 z_fair_way_to_pick_teams: a1, b1, a1, b2, a1
 zzz_not_playing:
   z:
     z:
-    - name: jason_leung -1.5
-    - name: liam_kinney 5.75
-    - name: elliot_boschwitz 5.75
-    - name: steven_safreno 6.5
-    - name: jeremy_leff 8.25
-    - name: moe_koelueker 3.25
-    - name: jack_rogers  7.5
-    - name: Zach_Costa 8
-    - name: steven_coffrey 5.5
-    - name: michael_hess 5.5
-    - name: sebastian_boberg  7.75
-    - name: steve 6
-    - name: cole 4
-    - name: jake_racich  6.5
-    - name: Alex Mark 7
-    - name: Rohit 3
-    - name: Derek 5
-    - name: Oliver 4.5
-    - name: Jay 7
-    - name: zzzzzzzzzzzz
-    - name: zzzzzzzzzzzz
+    - name: jason_leung
+    - name: liam_kinney
+    - name: elliot_boschwitz
+    - name: steven_safreno
+    - name: jeremy_leff
+    - name: moe_koelueker
+    - name: jack_rogers
+    - name: Zach_Costa
+    - name: steven_coffrey
+    - name: michael_hess
+    - name: sebastian_boberg
+    - name: steve
+    - name: cole
+    - name: jake_racich
+    - name: Alex_Mark
+    - name: Rohit
+    - name: Derek
+    - name: Oliver
+    - name: Jay
+    - name: zzzzzzzzzzz
+    - name: zzzzzzzzzzz
