@@ -2,45 +2,45 @@ matches:
 - _match number: 1
   teams:
   - players:
-    - name: alex_roe
     - name: clayton_schubiner A
-    - name: craig_collins A
-    - name: jake_leichtling
-    team num_players: 4
+    - name: craig_collins B
+    team num_players: 2
     team number: 1
-    team score: 42.25
+    team score: 23.5
   - players:
-    - name: jeff_grimes B
-    - name: michael_arbeed B
+    - name: jeff_grimes A
+    - name: michael_arbeed
     - name: arthur_orchanian
-    - name: eli_wald B
-    - name: alex_b_and_gunner_boost B
-    - name: andrew_carmine
-    - name: trevor_assaf
+    - name: alex_b_and_gunner_boost A
     - name: jack_shepherd
-    team num_players: 8
+    - name: steven_safreno
+    - name: jeremy_leff
+    - name: jack_rogers
+    - name: Zach_Costa
+    - name: jason_leung A
+    - name: liam_kinney
+    - name: Alex_Mark B
+    - name: moe_koelueker
+    - name: andrew_carmine B
+    team num_players: 14
     team number: 2
-    team score: 72.75
+    team score: 102.25
 night name: halo
 z_fair_way_to_pick_teams: a1, b1, a1, b2, a1
 zzz_not_playing:
   z:
     z:
-    - name: jason_leung
-    - name: liam_kinney
+    - name: alex_roe
+    - name: jake_leichtling
+    - name: eli_wald B
+    - name: trevor_assaf
     - name: elliot_boschwitz
-    - name: steven_safreno
-    - name: jeremy_leff
-    - name: moe_koelueker
-    - name: jack_rogers
-    - name: Zach_Costa
     - name: steven_coffrey
     - name: michael_hess
     - name: sebastian_boberg
     - name: steve
     - name: cole
     - name: jake_racich
-    - name: Alex_Mark
     - name: Rohit
     - name: Derek
     - name: Oliver
