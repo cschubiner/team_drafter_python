@@ -17,6 +17,7 @@ CURRENT_TEAM_FILENAME: str = "current_teams.yml"
 
 def modifyJson(yml):
     forced_team_to_player_names, player_to_score = read_yml(yml)
+    players_and_scores = sorted(player_to_score.items(), key=lambda x: x[1], reverse=True)
 
     # Also, add in "proposed_team_1" and "proposed_team_2" to each match
     # Create the proposed teams by enumerating all possible combinations of players
@@ -25,7 +26,6 @@ def modifyJson(yml):
 
     possible_teams = []
     total_players = len(player_to_score)
-    players_and_scores = sorted(player_to_score.items(), key=lambda x: x[1], reverse=True)
     # now shuffle it
     import random
 
