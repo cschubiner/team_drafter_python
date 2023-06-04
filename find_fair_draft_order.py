@@ -1,5 +1,3 @@
-import itertools
-
 import yaml
 
 from drafter import CURRENT_TEAM_FILENAME, read_yml
@@ -32,13 +30,24 @@ def draft(players_and_scores, pick_order, captain1, captain2):
     return abs(team1_score - team2_score), team1, team2, team1_score, team2_score
 
 
-def generate_pick_orders(depth):
-    if depth == 1:
-        return [[1], [2]]
-    else:
-        prev_orders = generate_pick_orders(depth - 1)
-        return [order + [i] for i in [1, 2] for order in prev_orders]
+def generate_pick_orders(depth, team1_picks=0, team2_picks=0):
+    if abs(team1_picks - team2_picks) > 1:
+        return []
 
+    if depth == 1:
+        if team1_picks == team2_picks:
+            return [[1], [2]]
+        elif team1_picks > team2_picks:
+            return [[2]]
+        else:
+            return [[1]]
+
+    else:
+        pick_orders = []
+        pick_orders += [[1] + order for order in generate_pick_orders(depth - 1, team1_picks + 1, team2_picks)]
+        pick_orders += [[2] + order for order in generate_pick_orders(depth - 1, team1_picks, team2_picks + 1)]
+
+        return pick_orders
 
 def find_fairest_draft_method(players_and_scores, captain1, captain2):
     total_players = len(players_and_scores)
