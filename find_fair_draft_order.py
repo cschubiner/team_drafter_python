@@ -51,11 +51,22 @@ def find_fairest_draft_method(players_and_scores, captain1, captain2):
     total_players = len(players_and_scores)
     min_score_difference = float('inf')
     best_pick_order = []
+    max_alternation = 0
+
+    def count_alternations(pick_order):
+        alternations = 0
+        for i in range(1, len(pick_order)):
+            if pick_order[i] != pick_order[i - 1]:
+                alternations += 1
+        return alternations
 
     for pick_order in generate_pick_orders(total_players - 2):
-        score_difference, team1, team2, team1_score, team2_score = draft(players_and_scores, pick_order, captain1, captain2)
+        score_difference, team1, team2, team1_score, team2_score = draft(players_and_scores, pick_order, captain1,
+                                                                         captain2)
+        alternations = count_alternations(pick_order)
 
-        if score_difference < min_score_difference:
+        if score_difference < min_score_difference or (
+                score_difference == min_score_difference and alternations > max_alternation):
             print()
             print(pick_order)
             print(f'team1 ({len(team1)}): {team1} - {team1_score}')
@@ -63,8 +74,10 @@ def find_fairest_draft_method(players_and_scores, captain1, captain2):
 
             min_score_difference = score_difference
             best_pick_order = pick_order
+            max_alternation = alternations
 
     return best_pick_order
+
 
 def print_fairest_draft_method_statements(fairest_draft_method):
     team1_picks = 0
@@ -100,7 +113,7 @@ if __name__ == '__main__':
     players_and_scores = {(x.split(' ')[0] if ' ' in x else x):y for x, y in players_and_scores}
 
     captain1 = 'craig_collins'
-    captain2 = 'clayton_schubiner'
+    captain2 = 'michael_arbeed'
 
     fairest_draft_method = find_fairest_draft_method(players_and_scores, captain1, captain2)
     print("Fairest draft method:", fairest_draft_method)

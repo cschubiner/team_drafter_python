@@ -21,6 +21,7 @@ matches:
     - name: andrew_carmine
     - name: Zach_Costa
     - name: jake_leichtling B
+    - name: michael_arbeed B
     team num_players: 14
     team number: 2
     team score: 107.25
@@ -32,7 +33,6 @@ zzz_not_playing:
     - name: alex_roe
     - name: eli_wald B
     - name: trevor_assaf
-    - name: michael_arbeed B
     - name: jeremy_leff
     - name: elliot_boschwitz
     - name: steven_coffrey
