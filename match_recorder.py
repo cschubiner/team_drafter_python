@@ -50,11 +50,16 @@ def parse_input(input_strings):
         # Append round data to the list
         rounds_data.append((team1_players, team2_players, score_team1, score_team2, match_notes))
 
-    return unique_players, rounds_data
+    # read the score from this part of the string: " """Team 1 (score: 58.75 #players: 7): """
+    # Extract the score from the match notes
+    team1_score_from_text = float(lines[0].split(' ')[3])
+    team2_score_from_text = float(lines[1].split(' ')[3])
+
+    return unique_players, rounds_data, team1_score_from_text, team2_score_from_text
 
 
 
-def append_to_csv(filename, unique_players, rounds_data, player_scores):
+def append_to_csv(filename, unique_players, rounds_data, player_scores, team1_score_from_text, team2_score_from_text):
     # Open the file in append mode
     with open(filename, mode='w', newline='') as file:
         writer = csv.writer(file)
@@ -190,7 +195,7 @@ Team 2 (score: 64.5 #players: 8): ['craig_collins', 'clayton_schubiner', 'alex_r
     ]
 
     # Parse the input
-    unique_players, rounds_data = parse_input(input_strings)
+    unique_players, rounds_data, team1_score_from_text, team2_score_from_text = parse_input(input_strings)
 
     # Append to CSV including match notes
-    append_to_csv('player_results.csv', unique_players, rounds_data, player_scores)
+    append_to_csv('player_results.csv', unique_players, rounds_data, player_scores, team1_score_from_text, team2_score_from_text)
