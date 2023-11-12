@@ -24,7 +24,24 @@ Team 2 (score: 66.75 #players: 8): ['craig_collins A', 'alex_b A', 'arthur_orcha
 """
     ]
         expected_csv_output = """Player Name,Round 1,Round 2,Round 3,Round 4
-# Add the expected CSV output here, formatted as a string
+Alex_Mark,Win,Tie as Team 1,Win,Tie as Team 1
+Zach_Costa,Lose,Tie as Team 2,Lose,Tie as Team 2
+alex_b,Lose,Tie as Team 2,Lose,Tie as Team 2
+andrew_carmine,Win,Tie as Team 1,Lose,Tie as Team 1
+arthur_orchanian,Lose,Tie as Team 1,Win,Tie as Team 2
+clayton_schubiner,Win,Tie as Team 1,Win,Tie as Team 1
+craig_collins,Lose,Tie as Team 2,Lose,Tie as Team 2
+garrett_schubiner,N/A,N/A,N/A,Tie as Team 2
+jack_rogers,Win,Tie as Team 1,Win,Tie as Team 1
+jack_shepherd,Win,Tie as Team 2,Lose,Tie as Team 2
+jake_leichtling,Win,Tie as Team 1,Win,Tie as Team 1
+jason_leung,Lose,Tie as Team 2,Lose,Tie as Team 2
+jeff_grimes,Win,Tie as Team 1,Win,Tie as Team 1
+liam_kinney,Win,Tie as Team 2,Lose,Tie as Team 1
+michael_arbeed,Lose,Tie as Team 2,Win,Tie as Team 1
+moe_koelueker,Lose,Tie as Team 1,Lose,N/A
+steven_safreno,Lose,Tie as Team 2,Lose,Tie as Team 2
+Match Notes,2-0 craig got a huge flag capture,"1-1 jeff did well, wipeout!",3-2 close match -- tie!,1-1 tie tie
 """
         mock_file = mock_open()
         with patch('builtins.open', mock_file):
