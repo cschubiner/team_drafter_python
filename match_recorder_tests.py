@@ -24,7 +24,7 @@ Team 2 (score: 66.75 #players: 8): ['craig_collins A', 'alex_b A', 'arthur_orcha
 1-1 tie tie
 """
     ]
-        expected_csv_output = "Player Name,Round 1,Round 2,Round 3,Round 4\n" + \
+        expected_csv_output = "Player Name,Round 1,Round 2,Round 3,Round 4" + os.linesep + \
 """Alex_Mark,Win,Tie as Team 1,Win,Tie as Team 1
 Zach_Costa,Lose,Tie as Team 2,Lose,Tie as Team 2
 alex_b,Lose,Tie as Team 2,Lose,Tie as Team 2
@@ -49,7 +49,7 @@ Match Notes,2-0 craig got a huge flag capture,"1-1 jeff did well, wipeout!",3-2 
             unique_players, rounds_data = parse_input(input_strings)
             append_to_csv('dummy_file.csv', unique_players, rounds_data)
             # Normalize line endings in the expected output to match the system's default
-            expected_lines = [line + os.linesep for line in expected_csv_output.split('\n')]
+            expected_lines = [line + os.linesep for line in expected_csv_output.split(os.linesep)]
             # Get the actual calls to write
             actual_calls = mock_file().write.call_args_list
             # Print the expected and actual calls for debugging
