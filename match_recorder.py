@@ -124,17 +124,8 @@ Team 2 (score: 64.5 #players: 9): ['craig_collins A', 'alex_b A', 'jack_shepherd
 """
     ]
 
-    # Read match notes from CSV
-    def read_match_notes(filename):
-        with open(filename, mode='r', newline='') as file:
-            reader = csv.reader(file)
-            next(reader)  # Skip the header
-            match_notes = [row[1] for row in reader]
-        return match_notes
-
     # Parse the input
     unique_players, rounds_data = parse_input(input_strings)
-    match_notes = read_match_notes('match_notes.csv')
 
     # Append to CSV including match notes
-    append_to_csv('player_results.csv', unique_players, rounds_data, match_notes)
+    append_to_csv('player_results.csv', unique_players, rounds_data)
