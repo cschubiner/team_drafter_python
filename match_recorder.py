@@ -54,7 +54,7 @@ def parse_input(input_strings):
 
 
 
-def append_to_csv(filename, unique_players, rounds_data):
+def append_to_csv(filename, unique_players, rounds_data, player_scores):
     # Open the file in append mode
     with open(filename, mode='w', newline='') as file:
         writer = csv.writer(file)
@@ -102,6 +102,10 @@ def append_to_csv(filename, unique_players, rounds_data):
 
 
 if __name__ == '__main__':
+    # Load player scores from JSON file
+    with open('player_scores.json', 'r') as f:
+        player_scores = json.load(f)
+
     input_strings = [
         """Team 1 (score: 63.75 #players: 8): ['alex_b', 'craig_collins', 'clayton_schubiner', 'arthur_orchanian', 'jack_shepherd', 'david_strickland', 'trevor_assaf']
 Team 2 (score: 63.75 #players: 8): ['michael_arbeed', 'jeff_grimes', 'alex_roe', 'jack_rogers', 'garrett_schubiner', 'liam_kinney', 'david_freed']
@@ -136,4 +140,4 @@ Team 2 (score: 64.5 #players: 8): ['craig_collins', 'clayton_schubiner', 'alex_r
     unique_players, rounds_data = parse_input(input_strings)
 
     # Append to CSV including match notes
-    append_to_csv('player_results.csv', unique_players, rounds_data)
+    append_to_csv('player_results.csv', unique_players, rounds_data, player_scores)
