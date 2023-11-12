@@ -176,13 +176,13 @@ Team 2 (score: 59.0 #players: 6): ['craig_collins A', 'alex_b A', 'arthur_orchan
 1-0 barely won""",
         """Team 1 (score: 0.0 #players: 8): ['alex_b', 'craig_collins', 'clayton_schubiner', 'arthur_orchanian', 'jack_shepherd', 'david_strickland', 'trevor_assaf']
 Team 2 (score: 0.0 #players: 8): ['michael_arbeed', 'jeff_grimes', 'alex_roe', 'jack_rogers', 'garrett_schubiner', 'liam_kinney', 'david_freed']
-0-0 tie (score unknown)""",
+0-0 tie (score unknown) - michael & alex b team captains""",
         """Team 1 (score: 0.0 #players: 8): ['alex_b', 'craig_collins', 'clayton_schubiner', 'arthur_orchanian', 'jack_shepherd', 'david_strickland', 'trevor_assaf']
 Team 2 (score: 0.0 #players: 8): ['michael_arbeed', 'jeff_grimes', 'alex_roe', 'jack_rogers', 'garrett_schubiner', 'liam_kinney', 'david_freed']
-1-1 tie""",
+1-1 tie - michael & alex b team captains""",
 """Team 1 (score: 0.0 #players: 8): ['alex_b', 'craig_collins', 'clayton_schubiner', 'arthur_orchanian', 'jack_shepherd', 'david_strickland', 'trevor_assaf']
 Team 2 (score: 0.0 #players: 8): ['michael_arbeed', 'jeff_grimes', 'alex_roe', 'jack_rogers', 'garrett_schubiner', 'liam_kinney', 'david_freed']
-1-0 close win to team 1""",
+1-0 close win to team 1 - michael & alex b team captains""",
         """Team 1 (score: 64.25 #players: 7): ['craig_collins B', 'jeff_grimes', 'clayton_schubiner', 'michael_arbeed', 'jack_rogers B', 'liam_kinney', 'david_freed']
 Team 2 (score: 64.5 #players: 8): ['alex_b', 'arthur_orchanian A', 'alex_roe A', 'garrett_schubiner', 'jack_shepherd', 'david_strickland', 'andrew_carmine', 'trevor_assaf']
 2-0 wipeout by team 1""",
@@ -191,7 +191,7 @@ Team 2 (score: 63.5 #players: 7): ['clayton_schubiner', 'arthur_orchanian A', 'a
 1-1 tie""",
         """Team 1 (score: 63.75 #players: 8): ['craig_collins B', 'jeff_grimes B', 'michael_arbeed', 'jack_shepherd', 'liam_kinney', 'david_freed', 'andrew_carmine B', 'trevor_assaf B']
 Team 2 (score: 63.5 #players: 7): ['clayton_schubiner', 'arthur_orchanian A', 'alex_roe A', 'alex_b', 'garrett_schubiner', 'jack_rogers A', 'david_strickland', 'jason_leung']
-2-0 wipeout by team 2 after adding jason onto team 2""",
+0-2 wipeout by team 2 after adding jason onto team 2""",
         """Team 1 (score: 64.25 #players: 8): ['jeff_grimes', 'arthur_orchanian B', 'alex_b B', 'garrett_schubiner', 'jack_rogers', 'david_strickland B', 'david_freed', 'trevor_assaf']
 Team 2 (score: 64.5 #players: 8): ['craig_collins', 'clayton_schubiner', 'alex_roe A', 'michael_arbeed', 'jack_shepherd', 'liam_kinney', 'andrew_carmine', 'jason_leung']
 0-0 tie""",
@@ -200,7 +200,7 @@ Team 2 (score: 64.5 #players: 8): ['craig_collins', 'clayton_schubiner', 'alex_r
 0-1""",
         """Team 1 (score: 64.25 #players: 8): ['jeff_grimes', 'arthur_orchanian B', 'alex_b B', 'garrett_schubiner', 'jack_rogers', 'david_strickland B', 'david_freed', 'trevor_assaf']
 Team 2 (score: 64.5 #players: 8): ['craig_collins', 'clayton_schubiner', 'alex_roe A', 'michael_arbeed', 'jack_shepherd', 'liam_kinney', 'andrew_carmine', 'jason_leung']
-3-1""",
+3-1 wipeout""",
     ]
 
     # Parse the input
