@@ -52,21 +52,27 @@ def parse_input(input_strings):
 
     # read the score from this part of the string: " """Team 1 (score: 58.75 #players: 7): """
     # Extract the score from the match notes
-    team1_score_from_text = float(lines[0].split(' ')[3])
-    team2_score_from_text = float(lines[1].split(' ')[3])
+    team1_scores_from_text = []
+    team2_scores_from_text = []
+    for input_string in input_strings:
+        lines = input_string.strip().split('\n')
+        team1_score = float(lines[0].split(' ')[3].strip('):'))
+        team2_score = float(lines[1].split(' ')[3].strip('):'))
+        team1_scores_from_text.append(team1_score)
+        team2_scores_from_text.append(team2_score)
 
-    return unique_players, rounds_data, team1_score_from_text, team2_score_from_text
+    return unique_players, rounds_data, team1_scores_from_text, team2_scores_from_text
 
 
 
-def append_to_csv(filename, unique_players, rounds_data, player_scores, team1_score_from_text, team2_score_from_text):
+def append_to_csv(filename, unique_players, rounds_data, player_scores, team1_scores_from_text, team2_scores_from_text):
     # Open the file in append mode
     with open(filename, mode='w', newline='') as file:
         writer = csv.writer(file)
 
         # Check if the file exists and is empty to write the header
         if not os.path.exists(filename) or os.stat(filename).st_size == 0:
-            header = ['Player Name'] + [f'Round {i+1}' for i in range(len(rounds_data))] + ['Score']
+            header = ['Player Name'] + [f'Round {i+1}' for i in range(len(rounds_data))] + ['Player Score']
             writer.writerow(header)
 
         # Write rows for each unique player
@@ -104,6 +110,15 @@ def append_to_csv(filename, unique_players, rounds_data, player_scores, team1_sc
         match_notes = [round_data[4] for round_data in rounds_data]
         writer.writerow(['Match Notes'] + match_notes)
 
+        # Write the input string scores as the final two rows
+        input_team1_scores_row = ['Team 1 Score before match']
+        input_team2_scores_row = ['Team 2 Score before match']
+        for team1_score, team2_score in zip(team1_scores_from_text, team2_scores_from_text):
+            input_team1_scores_row.append(team1_score)
+            input_team2_scores_row.append(team2_score)
+        writer.writerow(input_team1_scores_row)
+        writer.writerow(input_team2_scores_row)
+
         # Calculate and write the sum of scores for each team in each round
         team1_scores_row = ['Team 1 Total Score']
         team2_scores_row = ['Team 2 Total Score']
@@ -138,17 +153,7 @@ def append_to_csv(filename, unique_players, rounds_data, player_scores, team1_sc
         writer.writerow(team1_scores_row)
         writer.writerow(team2_scores_row)
 
-        # Write the input string scores as the final two rows
-        input_team1_scores_row = ['Input Team 1 Score']
-        input_team2_scores_row = ['Input Team 2 Score']
-        for _, _, _, _, match_notes in rounds_data:
-            # Extract the scores from the match notes
-            team1_score = float(match_notes.split(' ')[3])
-            team2_score = float(match_notes.split(' ')[9])
-            input_team1_scores_row.append(team1_score)
-            input_team2_scores_row.append(team2_score)
-        writer.writerow(input_team1_scores_row)
-        writer.writerow(input_team2_scores_row)
+
 
 
 
@@ -165,14 +170,14 @@ Team 2 (score: 59.0 #players: 6): ['craig_collins A', 'alex_b A', 'arthur_orchan
         """Team 1 (score: 58.75 #players: 7): ['jeff_grimes B', 'clayton_schubiner B', 'michael_arbeed', 'garrett_schubiner', 'jack_shepherd', 'jack_rogers B', 'trevor_assaf']
 Team 2 (score: 59.0 #players: 6): ['craig_collins A', 'alex_b A', 'arthur_orchanian', 'alex_roe', 'david_strickland', 'liam_kinney', 'david_freed']
 1-0 barely won""",
-        """Team 1 (score: 63.75 #players: 8): ['alex_b', 'craig_collins', 'clayton_schubiner', 'arthur_orchanian', 'jack_shepherd', 'david_strickland', 'trevor_assaf']
-Team 2 (score: 63.75 #players: 8): ['michael_arbeed', 'jeff_grimes', 'alex_roe', 'jack_rogers', 'garrett_schubiner', 'liam_kinney', 'david_freed']
+        """Team 1 (score: 0.0 #players: 8): ['alex_b', 'craig_collins', 'clayton_schubiner', 'arthur_orchanian', 'jack_shepherd', 'david_strickland', 'trevor_assaf']
+Team 2 (score: 0.0 #players: 8): ['michael_arbeed', 'jeff_grimes', 'alex_roe', 'jack_rogers', 'garrett_schubiner', 'liam_kinney', 'david_freed']
 0-0 tie (score unknown)""",
-        """Team 1 (score: 63.75 #players: 8): ['alex_b', 'craig_collins', 'clayton_schubiner', 'arthur_orchanian', 'jack_shepherd', 'david_strickland', 'trevor_assaf']
-Team 2 (score: 63.75 #players: 8): ['michael_arbeed', 'jeff_grimes', 'alex_roe', 'jack_rogers', 'garrett_schubiner', 'liam_kinney', 'david_freed']
+        """Team 1 (score: 0.0 #players: 8): ['alex_b', 'craig_collins', 'clayton_schubiner', 'arthur_orchanian', 'jack_shepherd', 'david_strickland', 'trevor_assaf']
+Team 2 (score: 0.0 #players: 8): ['michael_arbeed', 'jeff_grimes', 'alex_roe', 'jack_rogers', 'garrett_schubiner', 'liam_kinney', 'david_freed']
 1-1 tie""",
-"""Team 1 (score: 63.75 #players: 8): ['alex_b', 'craig_collins', 'clayton_schubiner', 'arthur_orchanian', 'jack_shepherd', 'david_strickland', 'trevor_assaf']
-Team 2 (score: 63.75 #players: 8): ['michael_arbeed', 'jeff_grimes', 'alex_roe', 'jack_rogers', 'garrett_schubiner', 'liam_kinney', 'david_freed']
+"""Team 1 (score: 0.0 #players: 8): ['alex_b', 'craig_collins', 'clayton_schubiner', 'arthur_orchanian', 'jack_shepherd', 'david_strickland', 'trevor_assaf']
+Team 2 (score: 0.0 #players: 8): ['michael_arbeed', 'jeff_grimes', 'alex_roe', 'jack_rogers', 'garrett_schubiner', 'liam_kinney', 'david_freed']
 1-0 close win to team 1""",
         """Team 1 (score: 64.25 #players: 7): ['craig_collins B', 'jeff_grimes', 'clayton_schubiner', 'michael_arbeed', 'jack_rogers B', 'liam_kinney', 'david_freed']
 Team 2 (score: 64.5 #players: 8): ['alex_b', 'arthur_orchanian A', 'alex_roe A', 'garrett_schubiner', 'jack_shepherd', 'david_strickland', 'andrew_carmine', 'trevor_assaf']
@@ -195,7 +200,7 @@ Team 2 (score: 64.5 #players: 8): ['craig_collins', 'clayton_schubiner', 'alex_r
     ]
 
     # Parse the input
-    unique_players, rounds_data, team1_score_from_text, team2_score_from_text = parse_input(input_strings)
+    unique_players, rounds_data, team1_scores_from_text, team2_scores_from_text = parse_input(input_strings)
 
     # Append to CSV including match notes
-    append_to_csv('player_results.csv', unique_players, rounds_data, player_scores, team1_score_from_text, team2_score_from_text)
+    append_to_csv('player_results.csv', unique_players, rounds_data, player_scores, team1_scores_from_text, team2_scores_from_text)

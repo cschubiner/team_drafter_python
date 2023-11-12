@@ -1,4 +1,4 @@
-Player Name,Round 1,Round 2,Round 3,Round 4,Round 5,Round 6,Round 7,Round 8,Round 9,Round 10,Round 11,Score
+Player Name,Round 1,Round 2,Round 3,Round 4,Round 5,Round 6,Round 7,Round 8,Round 9,Round 10,Round 11,Player Score
 alex_b,Tie as Team 2,Lose,Tie as Team 1,Tie as Team 1,Win,Lose,Tie as Team 2,Lose,Tie as Team 1,Lose,Win,10.0
 alex_roe,Tie as Team 2,Lose,Tie as Team 2,Tie as Team 2,Lose,Lose,Tie as Team 2,Lose,Tie as Team 2,Win,Lose,10
 andrew_carmine,N/A,N/A,N/A,N/A,N/A,Lose,Tie as Team 1,Win,Tie as Team 2,Win,Lose,5.5
@@ -16,5 +16,7 @@ liam_kinney,Tie as Team 2,Lose,Tie as Team 2,Tie as Team 2,Lose,Win,Tie as Team 
 michael_arbeed,Tie as Team 1,Win,Tie as Team 2,Tie as Team 2,Lose,Win,Tie as Team 1,Win,Tie as Team 2,Win,Lose,9.5
 trevor_assaf,Tie as Team 1,Win,Tie as Team 1,Tie as Team 1,Win,Lose,Tie as Team 1,Win,Tie as Team 1,Lose,Win,4.5
 Match Notes,1-1 tie,1-0 barely won,0-0 tie (score unknown),1-1 tie,1-0 close win to team 1,2-0 wipeout by team 1,1-1 tie,2-0 wipeout by team 2 after adding jason onto team 2,0-0 tie,0-1,3-1
+Team 1 Score before match,58.75,58.75,0.0,0.0,0.0,64.25,63.75,63.75,64.25,64.25,64.25
+Team 2 Score before match,59.0,59.0,0.0,0.0,0.0,64.5,63.5,63.5,64.5,64.5,64.5
 Team 1 Total Score,58.75,58.75,63.75,63.75,63.75,64.25,63.75,63.75,64.25,64.25,64.25
 Team 2 Total Score,63.0,63.0,58.0,58.0,58.0,63.0,63.5,65.0,64.5,64.5,64.5
