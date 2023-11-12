@@ -69,23 +69,24 @@ def parse_input(input_strings):
 
 
 def append_to_csv(filename, unique_players, rounds_data):
-    # Open the file in write mode
-    with open(filename, mode='w', newline='') as file:
+    # Open the file in append mode
+    with open(filename, mode='a', newline='') as file:
         writer = csv.writer(file)
 
-        # Write the header with player names and rounds
-        header = ['Player Name'] + [f'Round {i+1}' for i in range(len(rounds_data))]
-        writer.writerow(header)
+        # Check if the file is empty to write the header
+        if os.stat(filename).st_size == 0:
+            header = ['Player Name'] + [f'Round {i+1}' for i in range(len(rounds_data))]
+            writer.writerow(header)
 
         # Write rows for each unique player
-        for player in unique_players:
+        for player in sorted(unique_players):
             player_row = [player]
             for round_data in rounds_data:
                 team1_players, team2_players, score_team1, score_team2, _ = round_data
                 if player in team1_players:
-                    player_row.append('Win' if score_team1 > score_team2 else 'Lose')
+                    player_row.append('Win' if int(score_team1) > int(score_team2) else 'Lose')
                 elif player in team2_players:
-                    player_row.append('Win' if score_team2 > score_team1 else 'Lose')
+                    player_row.append('Win' if int(score_team2) > int(score_team1) else 'Lose')
                 else:
                     player_row.append('N/A')  # Player did not participate in this round
             writer.writerow(player_row)
