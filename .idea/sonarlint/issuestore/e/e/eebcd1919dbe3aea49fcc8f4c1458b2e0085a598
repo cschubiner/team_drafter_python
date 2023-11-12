@@ -1,0 +1,10 @@
+
+apython:S5797¢"HReplace this expression; used as a condition it will always be constant.(ãÅõÐ
+mpython:S1542"PRename function "modifyJson" to match the regular expression ^[a-z_][a-z0-9_]*$.(ÓÝ½ÿûÿÿÿÿ
+Fpython:S1481V".Remove the unused local variable "best_team2".(ŠŽ½±
+Fpython:S1481U".Remove the unused local variable "best_team1".(·ÿ¯ñ
+Jpython:S1481"2Remove the unused local variable "possible_teams".(ÃÁƒó
+Bpython:S1481$"%Remove the unused local variable "i".(»ÎáÉúÿÿÿÿ
+5python:S125]"Remove this commented out code.(ýÁÕK
+upython:S117‰"XRename this local variable "newYaml" to match the regular expression ^[_a-z][a-z0-9_]*$.(„°œÍøÿÿÿÿ
+npython:S1542„"PRename function "modifyFile" to match the regular expression ^[a-z_][a-z0-9_]*$.(Ÿ‰ÆÇùÿÿÿÿ

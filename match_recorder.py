@@ -125,11 +125,16 @@ def append_notes_to_csv(filename, rounds_data):
             _, _, _, _, match_notes = round_data
             writer.writerow([f'Round {i+1}', match_notes])
 
+
+if __name__ == '__main__':
     input_strings = [
         """Team 1 (score: 64.75 #players: 8): ['jeff_grimes B', 'clayton_schubiner B', 'Alex_Mark B', 'jack_shepherd', 'jack_rogers B', 'jake_leichtling B', 'liam_kinney', 'andrew_carmine']
         Team 2 (score: 65.0 #players: 8): ['craig_collins A', 'alex_b A', 'arthur_orchanian', 'michael_arbeed', 'steven_safreno A', 'Zach_Costa', 'moe_koelueker', 'jason_leung']
         2-0 craig got a huge flag capture""",
-        # Add more input strings here
+        """Team 1 (score: 65.5 #players: 8): ['jeff_grimes B', 'clayton_schubiner B', 'arthur_orchanian', 'Alex_Mark B', 'jake_leichtling B', 'jack_rogers B', 'andrew_carmine', 'moe_koelueker']
+Team 2 (score: 64.25 #players: 8): ['craig_collins A', 'alex_b A', 'michael_arbeed', 'jack_shepherd', 'steven_safreno A', 'Zach_Costa', 'liam_kinney', 'jason_leung']
+0-1 jeff did well, wipeout!
+"""
     ]
 
     # Parse the input

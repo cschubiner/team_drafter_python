@@ -11,6 +11,9 @@
     <option name="removeUnused" value="true" />
     <option name="modifyBaseFiles" value="true" />
   </component>
+  <component name="SonarLintModuleSettings">
+    <option name="uniqueId" value="f46e05de-b547-4f7e-b015-2df2dbbf8c78" />
+  </component>
   <component name="TestRunnerService">
     <option name="PROJECT_TEST_RUNNER" value="Unittests" />
   </component>
