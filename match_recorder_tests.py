@@ -67,8 +67,8 @@ Match Notes,2-0 craig got a huge flag capture,"1-1 jeff did well, wipeout!",3-2 
             for line in actual_lines:
                 print(f"call('{line}')")
             
-            # Normalize line endings in the expected output to match the system's default
-            expected_lines = expected_csv_output.splitlines(keepends=True)
+            # Normalize line endings in the expected output to match the actual output
+            expected_lines = [line for line in expected_csv_output.strip().splitlines()]
 
             # instead assert that the expected lines are == to the actual lines
             self.assertEqual(expected_lines, actual_lines), "Expected output did not match actual output"
