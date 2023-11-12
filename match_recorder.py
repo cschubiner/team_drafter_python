@@ -13,6 +13,8 @@ def parse_input(input_strings):
     for input_string in input_strings:
         # Split the input string by lines
         lines = input_string.strip().split('\n')
+        # .strip() all lines
+        lines = [line.strip() for line in lines]
 
         # Extract team information and player names
         team1_info = lines[0].split(': ')[1]
