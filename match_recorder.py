@@ -99,6 +99,40 @@ def append_to_csv(filename, unique_players, rounds_data, player_scores):
         match_notes = [round_data[4] for round_data in rounds_data]
         writer.writerow(['Match Notes'] + match_notes)
 
+        # Calculate and write the sum of scores for each team in each round
+        team1_scores_row = ['Team 1 Total Score']
+        team2_scores_row = ['Team 2 Total Score']
+        for team1_players, team2_players, _, _, _ in rounds_data:
+            team1_scores = 0
+            for player in team1_players:
+                # Normalize player name by removing team identifiers and trailing dots
+                normalized_player = player.strip("'")
+                if len(normalized_player.split()) > 2 and normalized_player.split()[-1] in ['A', 'B']:
+                    normalized_player = ' '.join(normalized_player.split()[:-1])
+                normalized_player = normalized_player.rstrip('.')
+                player_score = player_scores.get(normalized_player, None)
+                if player_score is None:
+                    raise Exception(f"Player {normalized_player} not found in player scores")
+                team1_scores += player_score
+
+            team1_scores_row.append(team1_scores)
+
+            team2_scores = 0
+            for player in team2_players:
+                # Normalize player name by removing team identifiers and trailing dots
+                normalized_player = player.strip("'")
+                if len(normalized_player.split()) > 2 and normalized_player.split()[-1] in ['A', 'B']:
+                    normalized_player = ' '.join(normalized_player.split()[:-1])
+                normalized_player = normalized_player.rstrip('.')
+                player_score = player_scores.get(normalized_player, None)
+                if player_score is None:
+                    raise Exception(f"Player {normalized_player} not found in player scores")
+                team2_scores +=  player_score
+
+            team2_scores_row.append(team2_scores)
+        writer.writerow(team1_scores_row)
+        writer.writerow(team2_scores_row)
+
 
 
 
