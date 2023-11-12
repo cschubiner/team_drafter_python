@@ -67,29 +67,30 @@ def append_to_csv(filename, unique_players, rounds_data, player_scores):
         # Write rows for each unique player
         for player in sorted(unique_players):
             player_row = [player]
-            # Append match results for each round
             for round_data in rounds_data:
                 team1_players, team2_players, score_team1, score_team2, _ = round_data
-                if player in team1_players:
-                    result = 'Win' if score_team1 > score_team2 else 'Lose' if score_team1 < score_team2 else 'Tie'
-                elif player in team2_players:
-                    result = 'Win' if score_team2 > score_team1 else 'Lose' if score_team2 < score_team1 else 'Tie'
+                # Normalize player name by removing team identifiers and trailing dots
+                normalized_player = player
+                if len(normalized_player.split()) > 2 and normalized_player.split()[-1] in ['A', 'B']:
+                    normalized_player = ' '.join(normalized_player.split()[:-1])
+                normalized_player = normalized_player.rstrip('.')
+
+                # Check if the normalized player name is in the teams
+                # Check if the normalized player name is a substring of any player name in the teams
+                if any(normalized_player in p for p in team1_players):
+                    if score_team1 == score_team2:
+                        player_row.append('Tie as Team 1')
+                    else:
+                        player_row.append('Win' if score_team1 > score_team2 else 'Lose')
+                elif any(normalized_player in p for p in team2_players):
+                    if score_team1 == score_team2:
+                        player_row.append('Tie as Team 2')
+                    else:
+                        player_row.append('Win' if score_team2 > score_team1 else 'Lose')
                 else:
-                    result = 'N/A'
-                player_row.append(result)
-            # Retrieve the player's score from the dictionary, default to 0 if not found
+                    player_row.append('N/A')  # Player did not participate in this round
+
             player_score = player_scores.get(player, 0)
-            # Append the player's score to the row
-            player_row.append(player_score)
-            writer.writerow(player_row)
-        # Append the player's score to each row
-        for player in sorted(unique_players):
-            player_row = [player]
-            # Retrieve the player's score from the dictionary, default to 0 if not found
-            player_score = player_scores.get(player, 0)
-            for round_data in rounds_data:
-                team1_players, team2_players, score_team1, score_team2, _ = round_data
-                # ... (rest of the existing code remains unchanged)
             # Append the player's score to the row
             player_row.append(player_score)
             writer.writerow(player_row)

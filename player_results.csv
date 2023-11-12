@@ -1,18 +1,18 @@
-Player Name,Round 1,Round 2,Round 3,Round 4,Round 5,Round 6,Round 7,Round 8,Round 9
-alex_b,Tie as Team 1,Tie as Team 1,Win,Lose,Tie as Team 2,Lose,Tie as Team 1,Lose,Win
-alex_roe,Tie as Team 2,Tie as Team 2,Lose,Lose,Tie as Team 2,Lose,Tie as Team 2,Win,Lose
-andrew_carmine,N/A,N/A,N/A,Lose,Tie as Team 1,Win,Tie as Team 2,Win,Lose
-arthur_orchanian,Tie as Team 1,Tie as Team 1,Win,Lose,Tie as Team 2,Lose,Tie as Team 1,Lose,Win
-clayton_schubiner,Tie as Team 1,Tie as Team 1,Win,Win,Tie as Team 2,Lose,Tie as Team 2,Win,Lose
-craig_collins,Tie as Team 1,Tie as Team 1,Win,Win,Tie as Team 1,Win,Tie as Team 2,Win,Lose
-david_freed,Tie as Team 2,Tie as Team 2,Lose,Win,Tie as Team 1,Win,Tie as Team 1,Lose,Win
-david_strickland,Tie as Team 1,Tie as Team 1,Win,Lose,Tie as Team 2,Lose,Tie as Team 1,Lose,Win
-garrett_schubiner,Tie as Team 2,Tie as Team 2,Lose,Lose,Tie as Team 2,Lose,Tie as Team 1,Lose,Win
-jack_rogers,Tie as Team 2,Tie as Team 2,Lose,Win,Tie as Team 2,Lose,Tie as Team 1,Lose,Win
-jack_shepherd,Tie as Team 1,Tie as Team 1,Win,Lose,Tie as Team 1,Win,Tie as Team 2,Win,Lose
-jason_leung,N/A,N/A,N/A,N/A,N/A,Lose,Tie as Team 2,Win,Lose
-jeff_grimes,Tie as Team 2,Tie as Team 2,Lose,Win,Tie as Team 1,Win,Tie as Team 1,Lose,Win
-liam_kinney,Tie as Team 2,Tie as Team 2,Lose,Win,Tie as Team 1,Win,Tie as Team 2,Win,Lose
-michael_arbeed,Tie as Team 2,Tie as Team 2,Lose,Win,Tie as Team 1,Win,Tie as Team 2,Win,Lose
-trevor_assaf,Tie as Team 1,Tie as Team 1,Win,Lose,Tie as Team 1,Win,Tie as Team 1,Lose,Win
+Player Name,Round 1,Round 2,Round 3,Round 4,Round 5,Round 6,Round 7,Round 8,Round 9,Score
+alex_b,Tie as Team 1,Tie as Team 1,Win,Lose,Tie as Team 2,Lose,Tie as Team 1,Lose,Win,10.0
+alex_roe,Tie as Team 2,Tie as Team 2,Lose,Lose,Tie as Team 2,Lose,Tie as Team 2,Win,Lose,10
+andrew_carmine,N/A,N/A,N/A,Lose,Tie as Team 1,Win,Tie as Team 2,Win,Lose,5.5
+arthur_orchanian,Tie as Team 1,Tie as Team 1,Win,Lose,Tie as Team 2,Lose,Tie as Team 1,Lose,Win,10.5
+clayton_schubiner,Tie as Team 1,Tie as Team 1,Win,Win,Tie as Team 2,Lose,Tie as Team 2,Win,Lose,10.75
+craig_collins,Tie as Team 1,Tie as Team 1,Win,Win,Tie as Team 1,Win,Tie as Team 2,Win,Lose,13.25
+david_freed,Tie as Team 2,Tie as Team 2,Lose,Win,Tie as Team 1,Win,Tie as Team 1,Lose,Win,6.0
+david_strickland,Tie as Team 1,Tie as Team 1,Win,Lose,Tie as Team 2,Lose,Tie as Team 1,Lose,Win,7.0
+garrett_schubiner,Tie as Team 2,Tie as Team 2,Lose,Lose,Tie as Team 2,Lose,Tie as Team 1,Lose,Win,7.75
+jack_rogers,Tie as Team 2,Tie as Team 2,Lose,Win,Tie as Team 2,Lose,Tie as Team 1,Lose,Win,7.5
+jack_shepherd,Tie as Team 1,Tie as Team 1,Win,Lose,Tie as Team 1,Win,Tie as Team 2,Win,Lose,7.75
+jason_leung,N/A,N/A,N/A,N/A,N/A,Lose,Tie as Team 2,Win,Lose,1.5
+jeff_grimes,Tie as Team 2,Tie as Team 2,Lose,Win,Tie as Team 1,Win,Tie as Team 1,Lose,Win,11.0
+liam_kinney,Tie as Team 2,Tie as Team 2,Lose,Win,Tie as Team 1,Win,Tie as Team 2,Win,Lose,6.25
+michael_arbeed,Tie as Team 2,Tie as Team 2,Lose,Win,Tie as Team 1,Win,Tie as Team 2,Win,Lose,9.5
+trevor_assaf,Tie as Team 1,Tie as Team 1,Win,Lose,Tie as Team 1,Win,Tie as Team 1,Lose,Win,4.5
 Match Notes,0-0 tie (score unknown),1-1 tie,1-0 close win to team 1,2-0 wipeout by team 1,1-1 tie,2-0 wipeout by team 2 after adding jason onto team 2,0-0 tie,0-1,3-1
