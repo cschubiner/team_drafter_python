@@ -43,7 +43,8 @@ def parse_input(input_strings):
             # Handle the case where scores are not in the 'x-y' format or are missing
             print(f"Error parsing scores from input: {lines[2]}")
             continue  # Skip this round of data
-        match_notes = score_notes[1] if len(score_notes) > 1 else ''
+        # match_notes = score_notes[1] if len(score_notes) > 1 else ''
+        match_notes = lines[2]
 
         # Append round data to the list
         rounds_data.append((team1_players, team2_players, score_team1, score_team2, match_notes))
@@ -59,7 +60,7 @@ def append_to_csv(filename, unique_players, rounds_data):
 
         # Check if the file is empty to write the header
         if os.stat(filename).st_size == 0:
-            header = ['Player Name'] + [f'Round {i+1}' for i in range(len(rounds_data))] + ['Match Notes']
+            header = ['Player Name'] + [f'Round {i+1}' for i in range(len(rounds_data))]
             writer.writerow(header)
 
         # Write rows for each unique player
@@ -108,7 +109,7 @@ Team 2 (score: 64.25 #players: 8): ['craig_collins A', 'alex_b A', 'michael_arbe
         """
         Team 1 (score: 65.25 #players: 7): ['jeff_grimes B', 'clayton_schubiner B', 'arthur_orchanian', 'michael_arbeed', 'Alex_Mark B', 'jake_leichtling B', 'jack_rogers B']
 Team 2 (score: 64.5 #players: 9): ['craig_collins A', 'alex_b A', 'jack_shepherd', 'steven_safreno A', 'Zach_Costa', 'liam_kinney', 'andrew_carmine', 'moe_koelueker', 'jason_leung']
-2-2 close match -- tie! 
+3-2 close match -- tie! 
 """
     ]
 
