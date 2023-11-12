@@ -33,7 +33,7 @@ def parse_input(input_strings):
             unique_players.add(player)
 
         # Extract scores and match notes, ensuring scores are integers and handling potential errors
-        score_notes = lines[2].split(' ', 2)
+        score_notes = lines[2].split(' ', 1)
         try:
             # Split the score string by '-' to separate the scores
             scores = score_notes[0].split('-')
@@ -43,7 +43,7 @@ def parse_input(input_strings):
             # Handle the case where scores are not in the 'x-y' format or are missing
             print(f"Error parsing scores from input: {lines[2]}")
             continue  # Skip this round of data
-        match_notes = score_notes[2] if len(score_notes) > 2 else ''
+        match_notes = score_notes[1] if len(score_notes) > 1 else ''
 
         # Append round data to the list
         rounds_data.append((team1_players, team2_players, score_team1, score_team2, match_notes))
@@ -52,7 +52,7 @@ def parse_input(input_strings):
 
 
 
-def append_to_csv(filename, unique_players, rounds_data, match_notes):
+def append_to_csv(filename, unique_players, rounds_data):
     # Open the file in append mode
     with open(filename, mode='w', newline='') as file:
         writer = csv.writer(file)
@@ -90,22 +90,10 @@ def append_to_csv(filename, unique_players, rounds_data, match_notes):
             writer.writerow(player_row)
 
         # Write match notes as the final row
+        match_notes = [round_data[4] for round_data in rounds_data]
         writer.writerow(['Match Notes'] + match_notes)
 
 
-
-def append_notes_to_csv(filename, rounds_data):
-    # Open the file in write mode
-    with open(filename, mode='w', newline='') as file:
-        writer = csv.writer(file)
-
-        # Write the header
-        writer.writerow(['Round', 'Match Notes'])
-
-        # Write rows for each round's match notes
-        for i, round_data in enumerate(rounds_data):
-            _, _, _, _, match_notes = round_data
-            writer.writerow([f'Round {i+1}', match_notes])
 
 
 if __name__ == '__main__':
