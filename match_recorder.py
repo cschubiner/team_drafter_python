@@ -107,7 +107,7 @@ def append_to_csv(filename, unique_players, rounds_data, player_scores):
             for player in team1_players:
                 # Normalize player name by removing team identifiers and trailing dots
                 normalized_player = player.strip("'")
-                if len(normalized_player.split()) > 2 and normalized_player.split()[-1] in ['A', 'B']:
+                if len(normalized_player.split()) > 1 and normalized_player.split()[-1] in ['A', 'B']:
                     normalized_player = ' '.join(normalized_player.split()[:-1])
                 normalized_player = normalized_player.rstrip('.')
                 player_score = player_scores.get(normalized_player, None)
@@ -121,7 +121,7 @@ def append_to_csv(filename, unique_players, rounds_data, player_scores):
             for player in team2_players:
                 # Normalize player name by removing team identifiers and trailing dots
                 normalized_player = player.strip("'")
-                if len(normalized_player.split()) > 2 and normalized_player.split()[-1] in ['A', 'B']:
+                if len(normalized_player.split()) > 1 and normalized_player.split()[-1] in ['A', 'B']:
                     normalized_player = ' '.join(normalized_player.split()[:-1])
                 normalized_player = normalized_player.rstrip('.')
                 player_score = player_scores.get(normalized_player, None)
@@ -142,6 +142,12 @@ if __name__ == '__main__':
         player_scores = json.load(f)
 
     input_strings = [
+        """Team 1 (score: 58.75 #players: 7): ['jeff_grimes B', 'clayton_schubiner B', 'michael_arbeed', 'garrett_schubiner', 'jack_shepherd', 'jack_rogers B', 'trevor_assaf']
+Team 2 (score: 59.0 #players: 6): ['craig_collins A', 'alex_b A', 'arthur_orchanian', 'alex_roe', 'david_strickland', 'liam_kinney', 'david_freed']
+1-1 tie """,
+        """Team 1 (score: 58.75 #players: 7): ['jeff_grimes B', 'clayton_schubiner B', 'michael_arbeed', 'garrett_schubiner', 'jack_shepherd', 'jack_rogers B', 'trevor_assaf']
+Team 2 (score: 59.0 #players: 6): ['craig_collins A', 'alex_b A', 'arthur_orchanian', 'alex_roe', 'david_strickland', 'liam_kinney', 'david_freed']
+1-0 barely won""",
         """Team 1 (score: 63.75 #players: 8): ['alex_b', 'craig_collins', 'clayton_schubiner', 'arthur_orchanian', 'jack_shepherd', 'david_strickland', 'trevor_assaf']
 Team 2 (score: 63.75 #players: 8): ['michael_arbeed', 'jeff_grimes', 'alex_roe', 'jack_rogers', 'garrett_schubiner', 'liam_kinney', 'david_freed']
 0-0 tie (score unknown)""",
