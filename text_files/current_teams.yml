@@ -5,14 +5,14 @@ matches:
     - name: clayton_schubiner B
     - name: Alex_Mark B
     - name: jack_shepherd
+    - name: garrett_schubiner
     - name: liam_kinney
     - name: jeff_grimes B
     - name: jack_rogers B
-    - name: moe_koelueker
     - name: jake_leichtling B
     team num_players: 8
     team number: 1
-    team score: 63.5
+    team score: 67.0
   - players:
     - name: craig_collins A
     - name: arthur_orchanian
@@ -37,6 +37,7 @@ zzz_not_playing:
     - name: elliot_boschwitz
     - name: steven_coffrey
     - name: michael_hess
+    - name: moe_koelueker
     - name: sebastian_boberg
     - name: steve
     - name: cole

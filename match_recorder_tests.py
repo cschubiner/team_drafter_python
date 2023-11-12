@@ -54,18 +54,18 @@ Match Notes,2-0 craig got a huge flag capture,"1-1 jeff did well, wipeout!",3-2 
             expected_lines = [line + os.linesep for line in expected_csv_output.strip().splitlines()]
 
             # Print the expected and actual calls for debugging
-            print("Expected calls:")
-            for line in expected_lines:
-                print(f"call('{line.strip()}')")
+            # print("Expected calls:")
+            # for line in expected_lines:
+            #     print(f"call('{line.strip()}')")
 
             # Get the actual calls to write
             actual_calls = mock_file().write.call_args_list
             # strip the trailing newline from each call
             actual_lines = [call[0][0].rstrip() for call in actual_calls]
 
-            print("\nActual calls:")
-            for line in actual_lines:
-                print(f"call('{line}')")
+            # print("\nActual calls:")
+            # for line in actual_lines:
+            #     print(f"call('{line}')")
             
             # Normalize line endings in the expected output to match the actual output
             expected_lines = [line for line in expected_csv_output.strip().splitlines()]
