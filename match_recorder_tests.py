@@ -50,8 +50,8 @@ Match Notes,2-0 craig got a huge flag capture,"1-1 jeff did well, wipeout!",3-2 
         with patch('builtins.open', mock_file):
             unique_players, rounds_data = parse_input(input_strings)
             append_to_csv('dummy_file.csv', unique_players, rounds_data)
-            # Normalize line endings in the expected output to match the system's default
-            expected_lines = expected_csv_output.splitlines(keepends=True)
+            # Ensure the expected output matches the actual output including the line endings
+            expected_lines = [line + os.linesep for line in expected_csv_output.strip().splitlines()]
 
             # Print the expected and actual calls for debugging
             print("Expected calls:")
