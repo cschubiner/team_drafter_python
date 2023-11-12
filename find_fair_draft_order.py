@@ -112,8 +112,10 @@ if __name__ == '__main__':
     players_and_scores = sorted(player_to_score.items(), key=lambda x: x[1], reverse=True)
     players_and_scores = {(x.split(' ')[0] if ' ' in x else x):y for x, y in players_and_scores}
 
-    captain1 = 'craig_collins'
-    captain2 = 'michael_arbeed'
+    # captain1 = 'craig_collins'
+    captain1 = 'alex_b'
+    # captain2 = 'michael_arbeed'
+    captain2 = 'jason_leung'
 
     fairest_draft_method = find_fairest_draft_method(players_and_scores, captain1, captain2)
     print("Fairest draft method:", fairest_draft_method)
