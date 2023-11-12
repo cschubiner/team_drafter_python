@@ -1,4 +1,5 @@
 import unittest
+import os  # Import the os module
 from unittest.mock import mock_open, patch
 from match_recorder import parse_input, append_to_csv
 
