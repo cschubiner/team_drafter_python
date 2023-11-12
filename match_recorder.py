@@ -22,9 +22,14 @@ def parse_input(input_strings):
         team1_players = team1_info.strip('[]').split(', ')
         team2_players = team2_info.strip('[]').split(', ')
 
-        # Update the set of unique player names
-        unique_players.update(team1_players)
-        unique_players.update(team2_players)
+        # Update the set of unique player names, removing team identifiers and trailing dots if necessary
+        for player in team1_players + team2_players:
+            # Remove team identifier if present
+            if len(player.split()) > 2 and player.split()[-1] in ['A', 'B']:
+                player = ' '.join(player.split()[:-1])
+            # Remove trailing dots
+            player = player.rstrip('.')
+            unique_players.add(player)
 
         # Extract scores and match notes, ensuring scores are integers and handling potential errors
         score_notes = lines[2].split(' ', 2)
@@ -61,9 +66,16 @@ def append_to_csv(filename, unique_players, rounds_data, match_notes):
             player_row = [player]
             for round_data in rounds_data:
                 team1_players, team2_players, score_team1, score_team2, _ = round_data
-                if player in team1_players:
+                # Normalize player name by removing team identifiers and trailing dots
+                normalized_player = player
+                if len(normalized_player.split()) > 2 and normalized_player.split()[-1] in ['A', 'B']:
+                    normalized_player = ' '.join(normalized_player.split()[:-1])
+                normalized_player = normalized_player.rstrip('.')
+
+                # Check if the normalized player name is in the teams
+                if normalized_player in [p.rstrip('.') for p in team1_players]:
                     player_row.append('Win' if score_team1 > score_team2 else 'Lose')
-                elif player in team2_players:
+                elif normalized_player in [p.rstrip('.') for p in team2_players]:
                     player_row.append('Win' if score_team2 > score_team1 else 'Lose')
                 else:
                     player_row.append('N/A')  # Player did not participate in this round
