@@ -74,9 +74,10 @@ def append_to_csv(filename, unique_players, rounds_data, match_notes):
                 normalized_player = normalized_player.rstrip('.')
 
                 # Check if the normalized player name is in the teams
-                if normalized_player in [p.rstrip('.') for p in team1_players]:
+                # Check if the normalized player name is a substring of any player name in the teams
+                if any(normalized_player in p for p in team1_players):
                     player_row.append('Win' if score_team1 > score_team2 else 'Lose')
-                elif normalized_player in [p.rstrip('.') for p in team2_players]:
+                elif any(normalized_player in p for p in team2_players):
                     player_row.append('Win' if score_team2 > score_team1 else 'Lose')
                 else:
                     player_row.append('N/A')  # Player did not participate in this round
