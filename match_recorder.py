@@ -58,8 +58,8 @@ def append_to_csv(filename, unique_players, rounds_data):
     with open(filename, mode='w', newline='') as file:
         writer = csv.writer(file)
 
-        # Check if the file is empty to write the header
-        if os.stat(filename).st_size == 0:
+        # Check if the file exists and is empty to write the header
+        if not os.path.exists(filename) or os.stat(filename).st_size == 0:
             header = ['Player Name'] + [f'Round {i+1}' for i in range(len(rounds_data))]
             writer.writerow(header)
 
