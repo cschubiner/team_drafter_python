@@ -26,8 +26,8 @@ Team 2 (score: 66.75 #players: 8): ['craig_collins A', 'alex_b A', 'arthur_orcha
     ]
         # Use os.linesep to ensure the line endings match the system's default
         # Use os.linesep to ensure the line endings match the system's default
-        expected_csv_output = "Player Name,Round 1,Round 2,Round 3,Round 4" + os.linesep + \
-"""Alex_Mark,Win,Tie as Team 1,Win,Tie as Team 1
+        expected_csv_output = """Player Name,Round 1,Round 2,Round 3,Round 4
+Alex_Mark,Win,Tie as Team 1,Win,Tie as Team 1
 Zach_Costa,Lose,Tie as Team 2,Lose,Tie as Team 2
 alex_b,Lose,Tie as Team 2,Lose,Tie as Team 2
 andrew_carmine,Win,Tie as Team 1,Lose,Tie as Team 1
