@@ -25,7 +25,8 @@ Team 2 (score: 66.75 #players: 8): ['craig_collins A', 'alex_b A', 'arthur_orcha
 """
     ]
         # Use os.linesep to ensure the line endings match the system's default
-        expected_csv_output = "Player Name,Round 1,Round 2,Round 3,Round 4" + "\n" + \
+        # Use os.linesep to ensure the line endings match the system's default
+        expected_csv_output = "Player Name,Round 1,Round 2,Round 3,Round 4" + os.linesep + \
 """Alex_Mark,Win,Tie as Team 1,Win,Tie as Team 1
 Zach_Costa,Lose,Tie as Team 2,Lose,Tie as Team 2
 alex_b,Lose,Tie as Team 2,Lose,Tie as Team 2
@@ -61,7 +62,11 @@ Match Notes,2-0 craig got a huge flag capture,"1-1 jeff did well, wipeout!",3-2 
             for call in actual_calls:
                 print(call)
             
-            # Check that write was called with each line of the expected output
+            # Normalize line endings in the expected output to match the system's default
+            expected_lines = expected_csv_output.splitlines(keepends=True)
+            # Get the actual calls to write
+            actual_calls = mock_file().write.call_args_list
+            # Check that write was called with each line of the expected output, normalized to the system's default line endings
             mock_file().write.assert_has_calls([unittest.mock.call(line) for line in expected_lines], any_order=True)
 
 
