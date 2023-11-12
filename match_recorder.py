@@ -87,15 +87,19 @@ def append_to_csv(filename, unique_players, rounds_data, player_scores, team1_sc
                     normalized_player = ' '.join(normalized_player.split()[:-1])
                 normalized_player = normalized_player.rstrip('.')
 
-                # Check if the normalized player name is in the teams
+                current_match_notes = round_data[4]
                 # Check if the normalized player name is a substring of any player name in the teams
                 if any(normalized_player in p for p in team1_players):
-                    if score_team1 == score_team2:
+                    if 'wipeout' in current_match_notes:
+                        player_row.append('BigWin' if score_team1 > score_team2 else 'BigLoss')
+                    elif score_team1 == score_team2:
                         player_row.append('Tie as Team 1')
                     else:
                         player_row.append('Win' if score_team1 > score_team2 else 'Lose')
                 elif any(normalized_player in p for p in team2_players):
-                    if score_team1 == score_team2:
+                    if 'wipeout' in current_match_notes:
+                        player_row.append('BigWin' if score_team2 > score_team1 else 'BigLoss')
+                    elif score_team1 == score_team2:
                         player_row.append('Tie as Team 2')
                     else:
                         player_row.append('Win' if score_team2 > score_team1 else 'Lose')
@@ -107,7 +111,6 @@ def append_to_csv(filename, unique_players, rounds_data, player_scores, team1_sc
             player_row.append(player_score)
             writer.writerow(player_row)
 
-        # Write match notes as the final row
         match_notes = [round_data[4] for round_data in rounds_data]
         writer.writerow(['Match Notes'] + match_notes)
 
