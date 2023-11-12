@@ -61,14 +61,27 @@ def append_to_csv(filename, unique_players, rounds_data):
 
         # Check if the file exists and is empty to write the header
         if not os.path.exists(filename) or os.stat(filename).st_size == 0:
-            # Read player scores from the JSON file
-            with open('player_scores.json', 'r') as f:
-                player_scores = json.load(f)
-            # Add 'Score' to the header
             header = ['Player Name'] + [f'Round {i+1}' for i in range(len(rounds_data))] + ['Score']
             writer.writerow(header)
 
         # Write rows for each unique player
+        for player in sorted(unique_players):
+            player_row = [player]
+            # Append match results for each round
+            for round_data in rounds_data:
+                team1_players, team2_players, score_team1, score_team2, _ = round_data
+                if player in team1_players:
+                    result = 'Win' if score_team1 > score_team2 else 'Lose' if score_team1 < score_team2 else 'Tie'
+                elif player in team2_players:
+                    result = 'Win' if score_team2 > score_team1 else 'Lose' if score_team2 < score_team1 else 'Tie'
+                else:
+                    result = 'N/A'
+                player_row.append(result)
+            # Retrieve the player's score from the dictionary, default to 0 if not found
+            player_score = player_scores.get(player, 0)
+            # Append the player's score to the row
+            player_row.append(player_score)
+            writer.writerow(player_row)
         # Append the player's score to each row
         for player in sorted(unique_players):
             player_row = [player]
