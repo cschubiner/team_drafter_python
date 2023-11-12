@@ -50,6 +50,16 @@ Match Notes,2-0 craig got a huge flag capture,"1-1 jeff did well, wipeout!",3-2 
             append_to_csv('dummy_file.csv', unique_players, rounds_data)
             # Normalize line endings in the expected output to match the system's default
             expected_lines = [line + os.linesep for line in expected_csv_output.split('\n')]
+            # Get the actual calls to write
+            actual_calls = mock_file().write.call_args_list
+            # Print the expected and actual calls for debugging
+            print("Expected calls:")
+            for line in expected_lines:
+                print(f"call('{line.strip()}')")
+            print("\nActual calls:")
+            for call in actual_calls:
+                print(call)
+            
             # Check that write was called with each line of the expected output
             mock_file().write.assert_has_calls([unittest.mock.call(line) for line in expected_lines], any_order=True)
 
