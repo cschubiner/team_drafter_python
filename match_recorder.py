@@ -24,11 +24,11 @@ def parse_input(input_strings):
         unique_players.update(team1_players)
         unique_players.update(team2_players)
 
-        # Extract scores and match notes
-        score_notes = lines[2].split(' ')
-        score_team1 = score_notes[0]
-        score_team2 = score_notes[1]
-        match_notes = ' '.join(score_notes[2:])
+        # Extract scores and match notes, ensuring scores are integers
+        score_notes = lines[2].split(' ', 2)
+        score_team1 = int(score_notes[0])
+        score_team2 = int(score_notes[1])
+        match_notes = score_notes[2]
 
         # Append round data to the list
         rounds_data.append((team1_players, team2_players, score_team1, score_team2, match_notes))
