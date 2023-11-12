@@ -49,8 +49,6 @@ Match Notes,2-0 craig got a huge flag capture,"1-1 jeff did well, wipeout!",3-2 
             append_to_csv('dummy_file.csv', unique_players, rounds_data)
             mock_file().write.assert_called_with(expected_csv_output)
 
-if __name__ == '__main__':
-    unittest.main()
 
 if __name__ == '__main__':
     unittest.main()
