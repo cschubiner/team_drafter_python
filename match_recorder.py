@@ -24,9 +24,13 @@ def parse_input(input_strings):
 
         # Update the set of unique player names, removing team identifiers and trailing dots if necessary
         for player in team1_players + team2_players:
-            # Normalize player name by removing team identifiers and trailing dots
-            normalized_player = ' '.join(player.split()[:-1]).rstrip('.')
-            unique_players.add(normalized_player)
+            # Remove team identifier if present
+            player = player.strip("'")
+            if player.split()[-1] in ['A', 'B']:
+                player = ' '.join(player.split()[:-1])
+            # Remove trailing dots
+            player = player.rstrip('.')
+            unique_players.add(player)
 
         # Extract scores and match notes, ensuring scores are integers and handling potential errors
         score_notes = lines[2].split(' ', 2)
@@ -64,7 +68,10 @@ def append_to_csv(filename, unique_players, rounds_data, match_notes):
             for round_data in rounds_data:
                 team1_players, team2_players, score_team1, score_team2, _ = round_data
                 # Normalize player name by removing team identifiers and trailing dots
-                normalized_player = ' '.join(player.split()[:-1]).rstrip('.')
+                normalized_player = player
+                if len(normalized_player.split()) > 2 and normalized_player.split()[-1] in ['A', 'B']:
+                    normalized_player = ' '.join(normalized_player.split()[:-1])
+                normalized_player = normalized_player.rstrip('.')
 
                 # Check if the normalized player name is in the teams
                 if normalized_player in [p.rstrip('.') for p in team1_players]:
