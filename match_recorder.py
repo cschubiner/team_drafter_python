@@ -26,11 +26,18 @@ def parse_input(input_strings):
         unique_players.update(team1_players)
         unique_players.update(team2_players)
 
-        # Extract scores and match notes, ensuring scores are integers
+        # Extract scores and match notes, ensuring scores are integers and handling potential errors
         score_notes = lines[2].split(' ', 2)
-        score_team1 = int(score_notes[0])
-        score_team2 = int(score_notes[1])
-        match_notes = score_notes[2]
+        try:
+            # Split the score string by '-' to separate the scores
+            scores = score_notes[0].split('-')
+            score_team1 = int(scores[0])
+            score_team2 = int(scores[1])
+        except (ValueError, IndexError):
+            # Handle the case where scores are not in the 'x-y' format or are missing
+            print(f"Error parsing scores from input: {lines[2]}")
+            continue  # Skip this round of data
+        match_notes = score_notes[2] if len(score_notes) > 2 else ''
 
         # Append round data to the list
         rounds_data.append((team1_players, team2_players, score_team1, score_team2, match_notes))
