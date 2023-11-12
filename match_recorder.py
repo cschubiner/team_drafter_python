@@ -17,8 +17,8 @@ def parse_input(input_strings):
         lines = [line.strip() for line in lines]
 
         # Extract team information and player names
-        team1_info = lines[0].split(': ')[1]
-        team2_info = lines[1].split(': ')[1]
+        team1_info = lines[0].split(': ')[3]
+        team2_info = lines[1].split(': ')[3]
         team1_players = team1_info.strip('[]').split(', ')
         team2_players = team2_info.strip('[]').split(', ')
 
@@ -44,37 +44,6 @@ def parse_input(input_strings):
 
     return unique_players, rounds_data
 
-    # Initialize a set to store unique player names
-    unique_players = set()
-
-    # Initialize a list to store parsed data for each round
-    rounds_data = []
-
-    # Process each input string
-    for input_string in input_strings:
-        # Split the input string by lines
-        lines = input_string.strip().split('\n')
-
-        # Extract team information and player names
-        team1_info = lines[0].split(': ')[1]
-        team2_info = lines[1].split(': ')[1]
-        team1_players = team1_info.strip('[]').split(', ')
-        team2_players = team2_info.strip('[]').split(', ')
-
-        # Update the set of unique player names
-        unique_players.update(team1_players)
-        unique_players.update(team2_players)
-
-        # Extract scores and match notes
-        score_notes = lines[2].split(' ')
-        score_team1 = score_notes[0]
-        score_team2 = score_notes[1]
-        match_notes = ' '.join(score_notes[2:])
-
-        # Append round data to the list
-        rounds_data.append((team1_players, team2_players, score_team1, score_team2, match_notes))
-
-    return unique_players, rounds_data
 
 
 def append_to_csv(filename, unique_players, rounds_data):
