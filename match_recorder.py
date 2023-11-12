@@ -46,14 +46,14 @@ def parse_input(input_strings):
 
 
 
-def append_to_csv(filename, unique_players, rounds_data):
+def append_to_csv(filename, unique_players, rounds_data, match_notes):
     # Open the file in append mode
     with open(filename, mode='a', newline='') as file:
         writer = csv.writer(file)
 
         # Check if the file is empty to write the header
         if os.stat(filename).st_size == 0:
-            header = ['Player Name'] + [f'Round {i+1}' for i in range(len(rounds_data))]
+            header = ['Player Name'] + [f'Round {i+1}' for i in range(len(rounds_data))] + ['Match Notes']
             writer.writerow(header)
 
         # Write rows for each unique player
@@ -62,12 +62,15 @@ def append_to_csv(filename, unique_players, rounds_data):
             for round_data in rounds_data:
                 team1_players, team2_players, score_team1, score_team2, _ = round_data
                 if player in team1_players:
-                    player_row.append('Win' if int(score_team1) > int(score_team2) else 'Lose')
+                    player_row.append('Win' if score_team1 > score_team2 else 'Lose')
                 elif player in team2_players:
-                    player_row.append('Win' if int(score_team2) > int(score_team1) else 'Lose')
+                    player_row.append('Win' if score_team2 > score_team1 else 'Lose')
                 else:
                     player_row.append('N/A')  # Player did not participate in this round
             writer.writerow(player_row)
+
+        # Write match notes as the final row
+        writer.writerow(['Match Notes'] + match_notes)
 
     # Open the file in write mode
     with open(filename, mode='w', newline='') as file:
@@ -116,11 +119,17 @@ Team 2 (score: 64.25 #players: 8): ['craig_collins A', 'alex_b A', 'michael_arbe
 """
     ]
 
+    # Read match notes from CSV
+    def read_match_notes(filename):
+        with open(filename, mode='r', newline='') as file:
+            reader = csv.reader(file)
+            next(reader)  # Skip the header
+            match_notes = [row[1] for row in reader]
+        return match_notes
+
     # Parse the input
     unique_players, rounds_data = parse_input(input_strings)
+    match_notes = read_match_notes('match_notes.csv')
 
-    # Append to CSV
-    append_to_csv('player_results.csv', unique_players, rounds_data)
-
-    # Append match notes to a separate CSV
-    append_notes_to_csv('match_notes.csv', rounds_data)
+    # Append to CSV including match notes
+    append_to_csv('player_results.csv', unique_players, rounds_data, match_notes)
