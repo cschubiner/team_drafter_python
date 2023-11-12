@@ -26,30 +26,53 @@ Team 2 (score: 66.75 #players: 8): ['craig_collins A', 'alex_b A', 'arthur_orcha
     ]
         # Use os.linesep to ensure the line endings match the system's default
         # Use os.linesep to ensure the line endings match the system's default
-        expected_csv_output = """Player Name,Round 1,Round 2,Round 3,Round 4
-Alex_Mark,Win,Tie as Team 1,Win,Tie as Team 1
-Zach_Costa,Lose,Tie as Team 2,Lose,Tie as Team 2
-alex_b,Lose,Tie as Team 2,Lose,Tie as Team 2
-andrew_carmine,Win,Tie as Team 1,Lose,Tie as Team 1
-arthur_orchanian,Lose,Tie as Team 1,Win,Tie as Team 2
-clayton_schubiner,Win,Tie as Team 1,Win,Tie as Team 1
-craig_collins,Lose,Tie as Team 2,Lose,Tie as Team 2
-garrett_schubiner,N/A,N/A,N/A,Tie as Team 2
-jack_rogers,Win,Tie as Team 1,Win,Tie as Team 1
-jack_shepherd,Win,Tie as Team 2,Lose,Tie as Team 2
-jake_leichtling,Win,Tie as Team 1,Win,Tie as Team 1
-jason_leung,Lose,Tie as Team 2,Lose,Tie as Team 2
-jeff_grimes,Win,Tie as Team 1,Win,Tie as Team 1
-liam_kinney,Win,Tie as Team 2,Lose,Tie as Team 1
-michael_arbeed,Lose,Tie as Team 2,Win,Tie as Team 1
-moe_koelueker,Lose,Tie as Team 1,Lose,N/A
-steven_safreno,Lose,Tie as Team 2,Lose,Tie as Team 2
+        expected_csv_output = """Player Name,Round 1,Round 2,Round 3,Round 4,Player Score
+Alex_Mark,Win,Tie as Team 1,Win,Tie as Team 1,5.1
+Zach_Costa,Lose,Tie as Team 2,Lose,Tie as Team 2,5
+alex_b,Lose,Tie as Team 2,Lose,Tie as Team 2,6
+andrew_carmine,Win,Tie as Team 1,Lose,Tie as Team 1,6
+arthur_orchanian,Lose,Tie as Team 1,Win,Tie as Team 2,11
+clayton_schubiner,Win,Tie as Team 1,Win,Tie as Team 1,9
+craig_collins,Lose,Tie as Team 2,Lose,Tie as Team 2,12
+garrett_schubiner,N/A,N/A,N/A,Tie as Team 2,10
+jack_rogers,Win,Tie as Team 1,Win,Tie as Team 1,5.1
+jack_shepherd,Win,Tie as Team 2,Lose,Tie as Team 2,5
+jake_leichtling,Win,Tie as Team 1,Win,Tie as Team 1,6
+jason_leung,Lose,Tie as Team 2,Lose,Tie as Team 2,6
+jeff_grimes,Win,Tie as Team 1,Win,Tie as Team 1,11
+liam_kinney,Win,Tie as Team 2,Lose,Tie as Team 1,9
+michael_arbeed,Lose,Tie as Team 2,Win,Tie as Team 1,12
+moe_koelueker,Lose,Tie as Team 1,Lose,N/A,10
+steven_safreno,Lose,Tie as Team 2,Lose,Tie as Team 2,5.1
 Match Notes,2-0 craig got a huge flag capture,"1-1 jeff did well, wipeout!",3-2 close match -- tie!,1-1 tie tie
+Team 1 Score before match,64.75,65.5,65.25,66.5
+Team 2 Score before match,65.0,64.25,64.5,66.75
+Team 1 Total Score,56.2,63.2,59.2,63.2
+Team 2 Total Score,67.1,60.1,64.1,60.1
 """
         mock_file = mock_open()
         with patch('builtins.open', mock_file):
-            unique_players, rounds_data = parse_input(input_strings)
-            append_to_csv('dummy_file.csv', unique_players, rounds_data)
+            unique_players, rounds_data, team1_scores_from_text, team2_scores_from_text = parse_input(input_strings)
+            player_scores = {
+                "Alex_Mark": 5.1,
+                "Zach_Costa": 5,
+                "alex_b": 6,
+                "andrew_carmine": 6,
+                "arthur_orchanian": 11,
+                "clayton_schubiner": 9,
+                "craig_collins": 12,
+                "garrett_schubiner": 10,
+                "jack_rogers": 5.1,
+                "jack_shepherd": 5,
+                "jake_leichtling": 6,
+                "jason_leung": 6,
+                "jeff_grimes": 11,
+                "liam_kinney": 9,
+                "michael_arbeed": 12,
+                "moe_koelueker": 10,
+                "steven_safreno": 5.1
+            }
+            append_to_csv('dummy_file.csv', unique_players, rounds_data, player_scores, team1_scores_from_text, team2_scores_from_text)
             # Ensure the expected output matches the actual output including the line endings
             expected_lines = [line + os.linesep for line in expected_csv_output.strip().splitlines()]
 

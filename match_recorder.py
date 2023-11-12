@@ -56,6 +56,7 @@ def parse_input(input_strings):
     team2_scores_from_text = []
     for input_string in input_strings:
         lines = input_string.strip().split('\n')
+        lines = [line.strip() for line in lines]
         team1_score = float(lines[0].split(' ')[3].strip('):'))
         team2_score = float(lines[1].split(' ')[3].strip('):'))
         team1_scores_from_text.append(team1_score)
