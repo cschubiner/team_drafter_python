@@ -99,22 +99,33 @@ def append_to_csv(filename, unique_players, rounds_data):
 
 if __name__ == '__main__':
     input_strings = [
-        """Team 1 (score: 64.75 #players: 8): ['jeff_grimes B', 'clayton_schubiner B', 'Alex_Mark B', 'jack_shepherd', 'jack_rogers B', 'jake_leichtling B', 'liam_kinney', 'andrew_carmine']
-        Team 2 (score: 65.0 #players: 8): ['craig_collins A', 'alex_b A', 'arthur_orchanian', 'michael_arbeed', 'steven_safreno A', 'Zach_Costa', 'moe_koelueker', 'jason_leung']
-        2-0 craig got a huge flag capture""",
-        """Team 1 (score: 65.5 #players: 8): ['jeff_grimes B', 'clayton_schubiner B', 'arthur_orchanian', 'Alex_Mark B', 'jake_leichtling B', 'jack_rogers B', 'andrew_carmine', 'moe_koelueker']
-Team 2 (score: 64.25 #players: 8): ['craig_collins A', 'alex_b A', 'michael_arbeed', 'jack_shepherd', 'steven_safreno A', 'Zach_Costa', 'liam_kinney', 'jason_leung']
-1-1 jeff did well, wipeout!
-""",
-        """
-        Team 1 (score: 65.25 #players: 7): ['jeff_grimes B', 'clayton_schubiner B', 'arthur_orchanian', 'michael_arbeed', 'Alex_Mark B', 'jake_leichtling B', 'jack_rogers B']
-Team 2 (score: 64.5 #players: 9): ['craig_collins A', 'alex_b A', 'jack_shepherd', 'steven_safreno A', 'Zach_Costa', 'liam_kinney', 'andrew_carmine', 'moe_koelueker', 'jason_leung']
-3-2 close match -- tie! 
-""",
-        """Team 1 (score: 66.5 #players: 8): ['jeff_grimes B', 'clayton_schubiner B', 'michael_arbeed', 'Alex_Mark B', 'jack_rogers B', 'jake_leichtling B', 'liam_kinney', 'andrew_carmine']
-Team 2 (score: 66.75 #players: 8): ['craig_collins A', 'alex_b A', 'arthur_orchanian', 'jack_shepherd', 'garrett_schubiner', 'steven_safreno A', 'Zach_Costa', 'jason_leung']
-1-1 tie tie
-"""
+        """Team 1 (score: 63.75 #players: 8): ['alex_b', 'craig_collins', 'clayton_schubiner', 'arthur_orchanian', 'jack_shepherd', 'david_strickland', 'trevor_assaf']
+Team 2 (score: 63.75 #players: 8): ['michael_arbeed', 'jeff_grimes', 'alex_roe', 'jack_rogers', 'garrett_schubiner', 'liam_kinney', 'david_freed']
+0-0 tie (score unknown)""",
+        """Team 1 (score: 63.75 #players: 8): ['alex_b', 'craig_collins', 'clayton_schubiner', 'arthur_orchanian', 'jack_shepherd', 'david_strickland', 'trevor_assaf']
+Team 2 (score: 63.75 #players: 8): ['michael_arbeed', 'jeff_grimes', 'alex_roe', 'jack_rogers', 'garrett_schubiner', 'liam_kinney', 'david_freed']
+1-1 tie""",
+"""Team 1 (score: 63.75 #players: 8): ['alex_b', 'craig_collins', 'clayton_schubiner', 'arthur_orchanian', 'jack_shepherd', 'david_strickland', 'trevor_assaf']
+Team 2 (score: 63.75 #players: 8): ['michael_arbeed', 'jeff_grimes', 'alex_roe', 'jack_rogers', 'garrett_schubiner', 'liam_kinney', 'david_freed']
+1-0 close win to team 1""",
+        """Team 1 (score: 64.25 #players: 7): ['craig_collins B', 'jeff_grimes', 'clayton_schubiner', 'michael_arbeed', 'jack_rogers B', 'liam_kinney', 'david_freed']
+Team 2 (score: 64.5 #players: 8): ['alex_b', 'arthur_orchanian A', 'alex_roe A', 'garrett_schubiner', 'jack_shepherd', 'david_strickland', 'andrew_carmine', 'trevor_assaf']
+2-0 wipeout by team 1""",
+        """Team 1 (score: 63.75 #players: 8): ['craig_collins B', 'jeff_grimes B', 'michael_arbeed', 'jack_shepherd', 'liam_kinney', 'david_freed', 'andrew_carmine B', 'trevor_assaf B']
+Team 2 (score: 63.5 #players: 7): ['clayton_schubiner', 'arthur_orchanian A', 'alex_roe A', 'alex_b', 'garrett_schubiner', 'jack_rogers A', 'david_strickland']
+1-1 tie""",
+        """Team 1 (score: 63.75 #players: 8): ['craig_collins B', 'jeff_grimes B', 'michael_arbeed', 'jack_shepherd', 'liam_kinney', 'david_freed', 'andrew_carmine B', 'trevor_assaf B']
+Team 2 (score: 63.5 #players: 7): ['clayton_schubiner', 'arthur_orchanian A', 'alex_roe A', 'alex_b', 'garrett_schubiner', 'jack_rogers A', 'david_strickland', 'jason_leung']
+2-0 wipeout by team 2 after adding jason onto team 2""",
+        """Team 1 (score: 64.25 #players: 8): ['jeff_grimes', 'arthur_orchanian B', 'alex_b B', 'garrett_schubiner', 'jack_rogers', 'david_strickland B', 'david_freed', 'trevor_assaf']
+Team 2 (score: 64.5 #players: 8): ['craig_collins', 'clayton_schubiner', 'alex_roe A', 'michael_arbeed', 'jack_shepherd', 'liam_kinney', 'andrew_carmine', 'jason_leung']
+0-0 tie""",
+        """Team 1 (score: 64.25 #players: 8): ['jeff_grimes', 'arthur_orchanian B', 'alex_b B', 'garrett_schubiner', 'jack_rogers', 'david_strickland B', 'david_freed', 'trevor_assaf']
+Team 2 (score: 64.5 #players: 8): ['craig_collins', 'clayton_schubiner', 'alex_roe A', 'michael_arbeed', 'jack_shepherd', 'liam_kinney', 'andrew_carmine', 'jason_leung']
+0-1""",
+        """Team 1 (score: 64.25 #players: 8): ['jeff_grimes', 'arthur_orchanian B', 'alex_b B', 'garrett_schubiner', 'jack_rogers', 'david_strickland B', 'david_freed', 'trevor_assaf']
+Team 2 (score: 64.5 #players: 8): ['craig_collins', 'clayton_schubiner', 'alex_roe A', 'michael_arbeed', 'jack_shepherd', 'liam_kinney', 'andrew_carmine', 'jason_leung']
+3-1""",
     ]
 
     # Parse the input
