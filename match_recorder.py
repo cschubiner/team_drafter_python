@@ -53,7 +53,7 @@ def parse_input(input_strings):
 
 def append_to_csv(filename, unique_players, rounds_data, match_notes):
     # Open the file in append mode
-    with open(filename, mode='a', newline='') as file:
+    with open(filename, mode='w', newline='') as file:
         writer = csv.writer(file)
 
         # Check if the file is empty to write the header
