@@ -133,6 +133,18 @@ def append_to_csv(filename, unique_players, rounds_data, player_scores):
         writer.writerow(team1_scores_row)
         writer.writerow(team2_scores_row)
 
+        # Write the input string scores as the final two rows
+        input_team1_scores_row = ['Input Team 1 Score']
+        input_team2_scores_row = ['Input Team 2 Score']
+        for _, _, _, _, match_notes in rounds_data:
+            # Extract the scores from the match notes
+            team1_score = float(match_notes.split(' ')[3])
+            team2_score = float(match_notes.split(' ')[9])
+            input_team1_scores_row.append(team1_score)
+            input_team2_scores_row.append(team2_score)
+        writer.writerow(input_team1_scores_row)
+        writer.writerow(input_team2_scores_row)
+
 
 
 
