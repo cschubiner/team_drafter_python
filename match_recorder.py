@@ -2,9 +2,38 @@ import csv
 import os
 
 
-def parse_input(input_string):
-    # Split the input string by lines
-    lines = input_string.strip().split('\n')
+def parse_input(input_strings):
+    # Initialize a set to store unique player names
+    unique_players = set()
+
+    # Initialize a list to store parsed data for each round
+    rounds_data = []
+
+    # Process each input string
+    for input_string in input_strings:
+        # Split the input string by lines
+        lines = input_string.strip().split('\n')
+
+        # Extract team information and player names
+        team1_info = lines[0].split(': ')[1]
+        team2_info = lines[1].split(': ')[1]
+        team1_players = team1_info.strip('[]').split(', ')
+        team2_players = team2_info.strip('[]').split(', ')
+
+        # Update the set of unique player names
+        unique_players.update(team1_players)
+        unique_players.update(team2_players)
+
+        # Extract scores and match notes
+        score_notes = lines[2].split(' ')
+        score_team1 = score_notes[0]
+        score_team2 = score_notes[1]
+        match_notes = ' '.join(score_notes[2:])
+
+        # Append round data to the list
+        rounds_data.append((team1_players, team2_players, score_team1, score_team2, match_notes))
+
+    return unique_players, rounds_data
 
     # Extract team information
     team1_info = lines[0].split(': ')[1]
@@ -19,9 +48,27 @@ def parse_input(input_string):
     return team1_info, team2_info, score_team1, score_team2, match_notes
 
 
-def append_to_csv(filename, data):
-    # Check if file exists to write headers
-    file_exists = os.path.isfile(filename)
+def append_to_csv(filename, unique_players, rounds_data):
+    # Open the file in write mode
+    with open(filename, mode='w', newline='') as file:
+        writer = csv.writer(file)
+
+        # Write the header with player names and rounds
+        header = ['Player Name'] + [f'Round {i+1}' for i in range(len(rounds_data))]
+        writer.writerow(header)
+
+        # Write rows for each unique player
+        for player in unique_players:
+            player_row = [player]
+            for round_data in rounds_data:
+                team1_players, team2_players, score_team1, score_team2, _ = round_data
+                if player in team1_players:
+                    player_row.append('Win' if score_team1 > score_team2 else 'Lose')
+                elif player in team2_players:
+                    player_row.append('Win' if score_team2 > score_team1 else 'Lose')
+                else:
+                    player_row.append('N/A')  # Player did not participate in this round
+            writer.writerow(player_row)
 
     # Open the file in append mode
     with open(filename, mode='a', newline='') as file:
