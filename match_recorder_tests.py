@@ -52,22 +52,27 @@ Match Notes,2-0 craig got a huge flag capture,"1-1 jeff did well, wipeout!",3-2 
             append_to_csv('dummy_file.csv', unique_players, rounds_data)
             # Normalize line endings in the expected output to match the system's default
             expected_lines = expected_csv_output.splitlines(keepends=True)
-            # Get the actual calls to write
-            actual_calls = mock_file().write.call_args_list
+
             # Print the expected and actual calls for debugging
             print("Expected calls:")
             for line in expected_lines:
                 print(f"call('{line.strip()}')")
+
+            # Get the actual calls to write
+            actual_calls = mock_file().write.call_args_list
+            # strip the trailing newline from each call
+            actual_lines = [call[0][0].rstrip() for call in actual_calls]
+
             print("\nActual calls:")
-            for call in actual_calls:
-                print(call)
+            for line in actual_lines:
+                print(f"call('{line}')")
             
             # Normalize line endings in the expected output to match the system's default
             expected_lines = expected_csv_output.splitlines(keepends=True)
-            # Get the actual calls to write
-            actual_calls = mock_file().write.call_args_list
-            # Check that write was called with each line of the expected output, normalized to the system's default line endings
-            mock_file().write.assert_has_calls([unittest.mock.call(line) for line in expected_lines], any_order=True)
+
+            # instead assert that the expected lines are == to the actual lines
+            self.assertEqual(expected_lines, actual_lines), "Expected output did not match actual output"
+
 
 
 if __name__ == '__main__':
