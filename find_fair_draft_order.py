@@ -95,7 +95,10 @@ def print_fairest_draft_method_statements(fairest_draft_method):
             i += 1
 
         team = "Team 1" if current_pick == 1 else "Team 2"
-        print(f" - {team} picks {num_picks} player{'' if num_picks == 1 else 's'}")
+        if num_picks > 2:
+            print(f" - {team} picks {num_picks} players in a row")
+        else:
+            print(f" - {team} picks {num_picks} player{'' if num_picks == 1 else 's'}")
 
         i += 1
 
