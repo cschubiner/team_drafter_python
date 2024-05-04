@@ -95,10 +95,7 @@ def print_fairest_draft_method_statements(fairest_draft_method):
             i += 1
 
         team = "Team 1" if current_pick == 1 else "Team 2"
-        if num_picks > 2:
-            print(f" - {team} picks {num_picks} players in a row")
-        else:
-            print(f" - {team} picks {num_picks} player{'' if num_picks == 1 else 's'}")
+        print(f" - {team} picks {num_picks} player{'' if num_picks == 1 else 's'}")
 
         i += 1
 
@@ -115,10 +112,10 @@ if __name__ == '__main__':
     players_and_scores = sorted(player_to_score.items(), key=lambda x: x[1], reverse=True)
     players_and_scores = {(x.split(' ')[0] if ' ' in x else x):y for x, y in players_and_scores}
 
-    # captain1 = 'craig_collins'
-    captain1 = 'alex_b'
-    captain2 = 'michael_arbeed'
-    # captain2 = 'jason_leung'
+    captain1 = 'craig_collins'
+    # captain1 = 'alex_b'
+    # captain2 = 'michael_arbeed'
+    captain2 = 'jason_leung'
 
     fairest_draft_method = find_fairest_draft_method(players_and_scores, captain1, captain2)
     print("Fairest draft method:", fairest_draft_method)
