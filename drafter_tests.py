@@ -1,3 +1,4 @@
+import random
 import unittest
 import unittest.mock as mock
 from contextlib import redirect_stdout
