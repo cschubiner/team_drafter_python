@@ -1,3 +1,5 @@
 
-Lpython:S1481T"/Remove the unused local variable "team2_picks".(Êµ˜¿ùÿÿÿÿ
 Lpython:S1481S"/Remove the unused local variable "team1_picks".(ô¾‚ªşÿÿÿÿ
+Lpython:S1481T"/Remove the unused local variable "team2_picks".(Êµ˜¿ùÿÿÿÿ
+Bpython:S125s"Remove this commented out code.(ˆ‘Ô·ùÿÿÿÿ8ÎıŠ¼1
+Bpython:S125v"Remove this commented out code.(°¡Úüÿÿÿÿ8ô…Ö¼1

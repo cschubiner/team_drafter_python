@@ -48,11 +48,10 @@ def generate_pick_orders(depth, team1_picks=0, team2_picks=0):
 
 
 def find_fairest_draft_method(players_and_scores, captain1, captain2):
-def find_fairest_draft_method(players_and_scores, captain1, captain2, prioritize_most_switch_offs=False):
     total_players = len(players_and_scores)
     min_score_difference = float('inf')
     best_pick_order = []
-    optimal_switch_offs = 0 if prioritize_most_switch_offs else float('inf')
+    max_consecutive_picks = 0
 
     def count_alternations(pick_order):
         alternations = 0
@@ -61,20 +60,24 @@ def find_fairest_draft_method(players_and_scores, captain1, captain2, prioritize
                 alternations += 1
         return alternations
 
-    def compare_switch_offs(pick_order, optimal_switch_offs):
-        switch_offs = count_alternations(pick_order)
-        if prioritize_most_switch_offs:
-            return switch_offs > optimal_switch_offs
-        else:
-            return switch_offs < optimal_switch_offs
+    def count_consecutive_picks(pick_order):
+        max_consecutive = 0
+        current_consecutive = 1
+        for i in range(1, len(pick_order)):
+            if pick_order[i] == pick_order[i - 1]:
+                current_consecutive += 1
+                max_consecutive = max(max_consecutive, current_consecutive)
+            else:
+                current_consecutive = 1
+        return max_consecutive
 
     for pick_order in generate_pick_orders(total_players - 2):
-        score_difference, team1, team2, team1_score, team2_score = draft(players_and_scores, pick_order, captain1, captain2)
+        score_difference, team1, team2, team1_score, team2_score = draft(players_and_scores, pick_order, captain1,
+                                                                         captain2)
+        consecutive_picks = count_consecutive_picks(pick_order)
+
         if (score_difference < min_score_difference or
-            (score_difference == min_score_difference and compare_switch_offs(pick_order, optimal_switch_offs))):
-                                                                        captain2)
-        if (score_difference < min_score_difference or
-            (score_difference == min_score_difference and compare_switch_offs(pick_order, optimal_switch_offs))):
+            (score_difference == min_score_difference and consecutive_picks > max_consecutive_picks)):
             print()
             print(pick_order)
             print(f'team1 ({len(team1)}): {team1} - {team1_score}')
@@ -82,7 +85,7 @@ def find_fairest_draft_method(players_and_scores, captain1, captain2, prioritize
 
             min_score_difference = score_difference
             best_pick_order = pick_order
-            optimal_switch_offs = count_alternations(pick_order)
+            max_consecutive_picks = consecutive_picks
 
     return best_pick_order
 

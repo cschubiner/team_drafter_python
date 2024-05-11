@@ -10,13 +10,6 @@
             </Attribute>
           </value>
         </entry>
-        <entry key="/match_results.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value="," />
-            </Attribute>
-          </value>
-        </entry>
         <entry key="/player_results.csv">
           <value>
             <Attribute>

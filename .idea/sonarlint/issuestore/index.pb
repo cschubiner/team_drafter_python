@@ -16,3 +16,9 @@ B
 player_scores.json,3/f/3fcc373702fb3563d54aa6de995c2b6f3030bd97
 L
 text_files/current_teams.yml,d/4/d45696f947fd6b58ebc87971cf636fde9fb84fe3
+G
+match_recorder_tests.py,5/f/5f7a6c6e614fee56ae8a4bac64bfea23b3cb9c80
+B
+player_results.csv,6/5/650f45068de3cbe09c8c439bc4a23c41de141d4b
+A
+match_recorder.py,2/e/2ecdb964aa5dae4d5479a17669b89eb445fec4cc

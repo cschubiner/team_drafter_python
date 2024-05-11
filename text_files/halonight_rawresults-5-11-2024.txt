@@ -1,0 +1,40 @@
+Team 1 (score: 40.75 #players: 5): ['clayton_schubiner A', 'alex_b', 'michael_arbeed', 'liam_kinney', 'moe_koelueker']
+Team 2 (score: 40.75 #players: 5): ['jeff_grimes', 'jack_rogers', 'Alex_Mark', 'steven_safreno', 'andrew_carmine']
+tie 1-1 5/10/24 team1 left early?
+
+Team 1 (score: 52.25 #players: 6): ['clayton_schubiner A', 'jeff_grimes', 'michael_arbeed', 'steven_safreno', 'Zach_Costa', 'daniel_khasanov']
+Team 2 (score: 52.25 #players: 7): ['arthur_orchanian B', 'alex_b', 'jack_rogers', 'Alex_Mark', 'liam_kinney', 'andrew_carmine', 'moe_koelueker']
+2-0 team 1
+
+Team 1 (score: 52.5 #players: 6): ['clayton_schubiner A', 'arthur_orchanian A', 'alex_b A', 'jack_rogers', 'steven_safreno', 'moe_koelueker']
+Team 2 (score: 52.5 #players: 7): ['jeff_grimes B', 'michael_arbeed', 'Alex_Mark B', 'Zach_Costa', 'daniel_khasanov', 'liam_kinney', 'andrew_carmine']
+1-1 tie 
+
+Team 1 (score: 49.5 #players: 6): ['clayton_schubiner A', 'jeff_grimes A', 'alex_b A', 'Zach_Costa', 'liam_kinney', 'trevor_assaf A']
+Team 2 (score: 49.5 #players: 7): ['arthur_orchanian', 'michael_arbeed B', 'steven_safreno', 'jack_rogers', 'daniel_khasanov', 'andrew_carmine', 'moe_koelueker']
+3-2 team 2
+
+Team 1 (score: 50.0 #players: 6): ['clayton_schubiner A', 'jeff_grimes A', 'alex_b A', 'Zach_Costa', 'daniel_khasanov', 'trevor_assaf A']
+Team 2 (score: 49.75 #players: 7): ['arthur_orchanian', 'michael_arbeed B', 'jack_rogers', 'steven_safreno', 'liam_kinney', 'andrew_carmine', 'moe_koelueker']
+1-2 team 2
+
+Team 1 (score: 50.13 #players: 6): ['clayton_schubiner A', 'alex_b', 'michael_arbeed', 'jack_rogers', 'daniel_khasanov', 'trevor_assaf']
+Team 2 (score: 50.25 #players: 7): ['jeff_grimes B', 'arthur_orchanian', 'steven_safreno', 'Zach_Costa', 'liam_kinney', 'andrew_carmine', 'moe_koelueker']
+3-2 team 1
+
+Team 1 (score: 50.13 #players: 6): ['clayton_schubiner A', 'alex_b', 'michael_arbeed', 'jack_rogers', 'daniel_khasanov', 'trevor_assaf']
+Team 2 (score: 50.25 #players: 7): ['jeff_grimes B', 'arthur_orchanian', 'steven_safreno', 'Zach_Costa', 'liam_kinney', 'andrew_carmine', 'moe_koelueker']
+same teams - tie game
+
+Team 1 (score: 50.13 #players: 6): ['clayton_schubiner A', 'alex_b', 'michael_arbeed', 'jack_rogers', 'daniel_khasanov', 'trevor_assaf']
+Team 2 (score: 50.25 #players: 7): ['jeff_grimes B', 'arthur_orchanian', 'steven_safreno', 'Zach_Costa', 'liam_kinney', 'andrew_carmine', 'moe_koelueker']
+same teams - 1-0 team 1
+
+Team 1 (score: 43.25 #players: 6): ['clayton_schubiner A', 'jeff_grimes', 'daniel_khasanov', 'liam_kinney', 'andrew_carmine A', 'trevor_assaf']
+Team 2 (score: 43.38 #players: 5): ['arthur_orchanian', 'alex_b', 'jack_rogers', 'steven_safreno', 'Zach_Costa']
+2-1 team 1
+
+Team 1 (score: 39.0 #players: 5): ['jeff_grimes', 'arthur_orchanian', 'Zach_Costa', 'daniel_khasanov', 'trevor_assaf A']
+Team 2 (score: 39.25 #players: 5): ['clayton_schubiner', 'alex_b', 'steven_safreno B', 'liam_kinney', 'andrew_carmine']
+2-1 team 1
+
