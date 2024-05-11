@@ -257,3 +257,89 @@ class TestModifyJson(unittest.TestCase):
                 best_team1_a_tier = [p for p in best_team1_players if player_scores[p] == 9]
                 best_team2_a_tier = [p for p in best_team2_players if player_scores[p] == 9]
                 self.assertEqual(len(best_team1_a_tier), len(best_team2_a_tier), "A tier players should be evenly distributed if S tier is even")
+    def test_modifyJson_with_large_player_pool(self):
+        player_scores = {f"player{i}": random.randint(1, 12) for i in range(1, 21)}
+
+        yaml_match_configuration = {
+            "matches": [
+                {
+                    "_match number": 1,
+                    "teams": [
+                        {
+                            "players": [
+                                {"name": f"player{i}"} for i in range(1, 11)
+                            ]
+                        },
+                        {
+                            "players": [
+                                {"name": f"player{i}"} for i in range(11, 21)
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+
+        with mock.patch('json.load', return_value=player_scores):
+            f = StringIO()
+            with redirect_stdout(f):
+                modifyJson(yaml_match_configuration)
+
+            output = f.getvalue().strip().split('\n')
+            best_team1 = output[-2].split(': ')[-1]
+            best_team2 = output[-1].split(': ')[-1]
+
+            # Check that the teams are balanced in size
+            assert abs(len(eval(best_team1)) - len(eval(best_team2))) <= 1
+
+    def test_modifyJson_with_multiple_matches(self):
+        player_scores = {f"player{i}": random.randint(1, 12) for i in range(1, 13)}
+
+        yaml_match_configuration = {
+            "matches": [
+                {
+                    "_match number": 1,
+                    "teams": [
+                        {
+                            "players": [
+                                {"name": f"player{i}"} for i in range(1, 4)
+                            ]
+                        },
+                        {
+                            "players": [
+                                {"name": f"player{i}"} for i in range(4, 7)
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "_match number": 2,
+                    "teams": [
+                        {
+                            "players": [
+                                {"name": f"player{i}"} for i in range(7, 10)
+                            ]
+                        },
+                        {
+                            "players": [
+                                {"name": f"player{i}"} for i in range(10, 13)
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+
+        with mock.patch('json.load', return_value=player_scores):
+            f = StringIO()
+            with redirect_stdout(f):
+                modifyJson(yaml_match_configuration)
+
+            output = f.getvalue().strip().split('\n')
+            
+            for i in range(2):
+                best_team1 = output[-4 + 2*i].split(': ')[-1]
+                best_team2 = output[-3 + 2*i].split(': ')[-1]
+
+                # Check that the teams are balanced in size for each match
+                assert abs(len(eval(best_team1)) - len(eval(best_team2))) <= 1
