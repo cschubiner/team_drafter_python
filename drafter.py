@@ -1,17 +1,14 @@
 #!/usr/bin/env python3
+import random
 import json
 from collections import defaultdict
 from collections import Counter
-from typing import Dict, Any
-
-import yaml
 import sys
 import time
-import logging
+
+import yaml
 from watchdog.events import PatternMatchingEventHandler
 from watchdog.observers import Observer
-from yaml import load, dump
-from watchdog.events import LoggingEventHandler
 
 CURRENT_TEAM_FILENAME: str = "current_teams.yml"
 
@@ -25,20 +22,17 @@ def modifyJson(yml):
     # in which the team size is equal or +1/-1 of each other
     # Then, for each match, add in the proposed teams
 
-    possible_teams = []
     total_players = len(player_to_score)
     # now shuffle it
-    import random
 
     best_min_score_delta = 999
-    already_seen_teams = set()
     already_seen_teams = set()
     printed_team_combinations = set()
     best_team1_tiers = Counter()
     best_team2_tiers = Counter()
 
     # Choose 100 random teams
-    for i in range(30250):
+    for i in range(50000):
         random.shuffle(players_and_scores)
         team1 = []
         team2 = []
