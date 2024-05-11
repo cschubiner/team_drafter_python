@@ -167,42 +167,46 @@ if __name__ == '__main__':
     with open('player_scores.json', 'r') as f:
         player_scores = json.load(f)
 
-    input_strings = [
-        """Team 1 (score: 58.75 #players: 7): ['jeff_grimes B', 'clayton_schubiner B', 'michael_arbeed', 'garrett_schubiner', 'jack_shepherd', 'jack_rogers B', 'trevor_assaf']
-Team 2 (score: 59.0 #players: 6): ['craig_collins A', 'alex_b A', 'arthur_orchanian', 'alex_roe', 'david_strickland', 'liam_kinney', 'david_freed']
-1-1 tie """,
-        """Team 1 (score: 58.75 #players: 7): ['jeff_grimes B', 'clayton_schubiner B', 'michael_arbeed', 'garrett_schubiner', 'jack_shepherd', 'jack_rogers B', 'trevor_assaf']
-Team 2 (score: 59.0 #players: 6): ['craig_collins A', 'alex_b A', 'arthur_orchanian', 'alex_roe', 'david_strickland', 'liam_kinney', 'david_freed']
-1-0 barely won""",
-        """Team 1 (score: 0.0 #players: 8): ['alex_b', 'craig_collins', 'clayton_schubiner', 'arthur_orchanian', 'jack_shepherd', 'david_strickland', 'trevor_assaf']
-Team 2 (score: 0.0 #players: 8): ['michael_arbeed', 'jeff_grimes', 'alex_roe', 'jack_rogers', 'garrett_schubiner', 'liam_kinney', 'david_freed']
-0-0 tie (score unknown) - michael & alex b team captains""",
-        """Team 1 (score: 0.0 #players: 8): ['alex_b', 'craig_collins', 'clayton_schubiner', 'arthur_orchanian', 'jack_shepherd', 'david_strickland', 'trevor_assaf']
-Team 2 (score: 0.0 #players: 8): ['michael_arbeed', 'jeff_grimes', 'alex_roe', 'jack_rogers', 'garrett_schubiner', 'liam_kinney', 'david_freed']
-1-1 tie - michael & alex b team captains""",
-"""Team 1 (score: 0.0 #players: 8): ['alex_b', 'craig_collins', 'clayton_schubiner', 'arthur_orchanian', 'jack_shepherd', 'david_strickland', 'trevor_assaf']
-Team 2 (score: 0.0 #players: 8): ['michael_arbeed', 'jeff_grimes', 'alex_roe', 'jack_rogers', 'garrett_schubiner', 'liam_kinney', 'david_freed']
-1-0 close win to team 1 - michael & alex b team captains""",
-        """Team 1 (score: 64.25 #players: 7): ['craig_collins B', 'jeff_grimes', 'clayton_schubiner', 'michael_arbeed', 'jack_rogers B', 'liam_kinney', 'david_freed']
-Team 2 (score: 64.5 #players: 8): ['alex_b', 'arthur_orchanian A', 'alex_roe A', 'garrett_schubiner', 'jack_shepherd', 'david_strickland', 'andrew_carmine', 'trevor_assaf']
-2-0 wipeout by team 1""",
-        """Team 1 (score: 63.75 #players: 8): ['craig_collins B', 'jeff_grimes B', 'michael_arbeed', 'jack_shepherd', 'liam_kinney', 'david_freed', 'andrew_carmine B', 'trevor_assaf B']
-Team 2 (score: 63.5 #players: 7): ['clayton_schubiner', 'arthur_orchanian A', 'alex_roe A', 'alex_b', 'garrett_schubiner', 'jack_rogers A', 'david_strickland']
-1-1 tie""",
-        """Team 1 (score: 63.75 #players: 8): ['craig_collins B', 'jeff_grimes B', 'michael_arbeed', 'jack_shepherd', 'liam_kinney', 'david_freed', 'andrew_carmine B', 'trevor_assaf B']
-Team 2 (score: 63.5 #players: 7): ['clayton_schubiner', 'arthur_orchanian A', 'alex_roe A', 'alex_b', 'garrett_schubiner', 'jack_rogers A', 'david_strickland', 'jason_leung']
-0-2 wipeout by team 2 after adding jason onto team 2""",
-        """Team 1 (score: 64.25 #players: 8): ['jeff_grimes', 'arthur_orchanian B', 'alex_b B', 'garrett_schubiner', 'jack_rogers', 'david_strickland B', 'david_freed', 'trevor_assaf']
-Team 2 (score: 64.5 #players: 8): ['craig_collins', 'clayton_schubiner', 'alex_roe A', 'michael_arbeed', 'jack_shepherd', 'liam_kinney', 'andrew_carmine', 'jason_leung']
-0-0 tie""",
-        """Team 1 (score: 64.25 #players: 8): ['jeff_grimes', 'arthur_orchanian B', 'alex_b B', 'garrett_schubiner', 'jack_rogers', 'david_strickland B', 'david_freed', 'trevor_assaf']
-Team 2 (score: 64.5 #players: 8): ['craig_collins', 'clayton_schubiner', 'alex_roe A', 'michael_arbeed', 'jack_shepherd', 'liam_kinney', 'andrew_carmine', 'jason_leung']
-0-1""",
-        """Team 1 (score: 64.25 #players: 8): ['jeff_grimes', 'arthur_orchanian B', 'alex_b B', 'garrett_schubiner', 'jack_rogers', 'david_strickland B', 'david_freed', 'trevor_assaf']
-Team 2 (score: 64.5 #players: 8): ['craig_collins', 'clayton_schubiner', 'alex_roe A', 'michael_arbeed', 'jack_shepherd', 'liam_kinney', 'andrew_carmine', 'jason_leung']
-3-1 wipeout""",
-    ]
+    input_strings = ["""Team 1 (score: 40.75 #players: 5): ['clayton_schubiner A', 'alex_b', 'michael_arbeed', 'liam_kinney', 'moe_koelueker']
+Team 2 (score: 40.75 #players: 5): ['jeff_grimes', 'jack_rogers', 'Alex_Mark', 'steven_safreno', 'andrew_carmine']
+1-1 tie 5/10/24 team1 left early?""",
 
+"""Team 1 (score: 52.25 #players: 6): ['clayton_schubiner A', 'jeff_grimes', 'michael_arbeed', 'steven_safreno', 'Zach_Costa', 'daniel_khasanov']
+Team 2 (score: 52.25 #players: 7): ['arthur_orchanian B', 'alex_b', 'jack_rogers', 'Alex_Mark', 'liam_kinney', 'andrew_carmine', 'moe_koelueker']
+2-0 team 1 wipeout""",
+
+"""Team 1 (score: 52.5 #players: 6): ['clayton_schubiner A', 'arthur_orchanian A', 'alex_b A', 'jack_rogers', 'steven_safreno', 'moe_koelueker']
+Team 2 (score: 52.5 #players: 7): ['jeff_grimes B', 'michael_arbeed', 'Alex_Mark B', 'Zach_Costa', 'daniel_khasanov', 'liam_kinney', 'andrew_carmine']
+1-1 tie """,
+
+"""Team 1 (score: 49.5 #players: 6): ['clayton_schubiner A', 'jeff_grimes A', 'alex_b A', 'Zach_Costa', 'liam_kinney', 'trevor_assaf A']
+Team 2 (score: 49.5 #players: 7): ['arthur_orchanian', 'michael_arbeed B', 'steven_safreno', 'jack_rogers', 'daniel_khasanov', 'andrew_carmine', 'moe_koelueker']
+2-3 team 2""",
+
+"""Team 1 (score: 50.0 #players: 6): ['clayton_schubiner A', 'jeff_grimes A', 'alex_b A', 'Zach_Costa', 'daniel_khasanov', 'trevor_assaf A']
+Team 2 (score: 49.75 #players: 7): ['arthur_orchanian', 'michael_arbeed B', 'jack_rogers', 'steven_safreno', 'liam_kinney', 'andrew_carmine', 'moe_koelueker']
+1-2 team 2""",
+
+"""Team 1 (score: 50.13 #players: 6): ['clayton_schubiner A', 'alex_b', 'michael_arbeed', 'jack_rogers', 'daniel_khasanov', 'trevor_assaf']
+Team 2 (score: 50.25 #players: 7): ['jeff_grimes B', 'arthur_orchanian', 'steven_safreno', 'Zach_Costa', 'liam_kinney', 'andrew_carmine', 'moe_koelueker']
+3-2 team 1""",
+
+"""Team 1 (score: 50.13 #players: 6): ['clayton_schubiner A', 'alex_b', 'michael_arbeed', 'jack_rogers', 'daniel_khasanov', 'trevor_assaf']
+Team 2 (score: 50.25 #players: 7): ['jeff_grimes B', 'arthur_orchanian', 'steven_safreno', 'Zach_Costa', 'liam_kinney', 'andrew_carmine', 'moe_koelueker']
+1-1 tie game - same teams""",
+
+"""Team 1 (score: 50.13 #players: 6): ['clayton_schubiner A', 'alex_b', 'michael_arbeed', 'jack_rogers', 'daniel_khasanov', 'trevor_assaf']
+Team 2 (score: 50.25 #players: 7): ['jeff_grimes B', 'arthur_orchanian', 'steven_safreno', 'Zach_Costa', 'liam_kinney', 'andrew_carmine', 'moe_koelueker']
+1-0 team 1 - same teams""",
+
+"""Team 1 (score: 43.25 #players: 6): ['clayton_schubiner A', 'jeff_grimes', 'daniel_khasanov', 'liam_kinney', 'andrew_carmine A', 'trevor_assaf']
+Team 2 (score: 43.38 #players: 5): ['arthur_orchanian', 'alex_b', 'jack_rogers', 'steven_safreno', 'Zach_Costa']
+2-1 team 1""",
+
+"""Team 1 (score: 39.0 #players: 5): ['jeff_grimes', 'arthur_orchanian', 'Zach_Costa', 'daniel_khasanov', 'trevor_assaf A']
+Team 2 (score: 39.25 #players: 5): ['clayton_schubiner', 'alex_b', 'steven_safreno B', 'liam_kinney', 'andrew_carmine']
+2-1 team 1""",
+]
     # Parse the input
     unique_players, rounds_data, team1_scores_from_text, team2_scores_from_text = parse_input(input_strings)
 
