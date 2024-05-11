@@ -66,6 +66,16 @@ def parse_input(input_strings):
 
 
 
+def get_player_tier(player_score):
+    if player_score >= 10:
+        return 'S'
+    elif player_score >= 8:
+        return 'A'
+    elif player_score >= 6:
+        return 'B'
+    else:
+        return 'C'
+
 def append_to_csv(filename, unique_players, rounds_data, player_scores, team1_scores_from_text, team2_scores_from_text):
     # Open the file in append mode
     with open(filename, mode='w', newline='') as file:
@@ -156,6 +166,39 @@ def append_to_csv(filename, unique_players, rounds_data, player_scores, team1_sc
             team2_scores_row.append(team2_scores)
         writer.writerow(team1_scores_row)
         writer.writerow(team2_scores_row)
+
+        # Calculate and write the number of players in each tier for each team in each round
+        team1_tiers_row = ['Team 1 Tier Counts']
+        team2_tiers_row = ['Team 2 Tier Counts']
+        for team1_players, team2_players, _, _, _ in rounds_data:
+            team1_tier_counts = {'S': 0, 'A': 0, 'B': 0, 'C': 0}
+            for player in team1_players:
+                normalized_player = player.strip("'")
+                if len(normalized_player.split()) > 1 and normalized_player.split()[-1] in ['A', 'B']:
+                    normalized_player = ' '.join(normalized_player.split()[:-1])
+                normalized_player = normalized_player.rstrip('.')
+                player_score = player_scores.get(normalized_player, None)
+                if player_score is None:
+                    raise Exception(f"Player {normalized_player} not found in player scores")
+                tier = get_player_tier(player_score)
+                team1_tier_counts[tier] += 1
+            team1_tiers_row.append(f"S:{team1_tier_counts['S']} A:{team1_tier_counts['A']} B:{team1_tier_counts['B']} C:{team1_tier_counts['C']}")
+
+            team2_tier_counts = {'S': 0, 'A': 0, 'B': 0, 'C': 0}
+            for player in team2_players:
+                normalized_player = player.strip("'")
+                if len(normalized_player.split()) > 1 and normalized_player.split()[-1] in ['A', 'B']:
+                    normalized_player = ' '.join(normalized_player.split()[:-1])
+                normalized_player = normalized_player.rstrip('.')
+                player_score = player_scores.get(normalized_player, None)
+                if player_score is None:
+                    raise Exception(f"Player {normalized_player} not found in player scores")
+                tier = get_player_tier(player_score)
+                team2_tier_counts[tier] += 1
+            team2_tiers_row.append(f"S:{team2_tier_counts['S']} A:{team2_tier_counts['A']} B:{team2_tier_counts['B']} C:{team2_tier_counts['C']}")
+
+        writer.writerow(team1_tiers_row)
+        writer.writerow(team2_tiers_row)
 
 
 
