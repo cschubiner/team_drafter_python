@@ -32,7 +32,7 @@ def modifyJson(yml):
     best_team2_tiers = Counter()
 
     # Choose 100 random teams
-    for i in range(50000):
+    for i in range(80000):
         random.shuffle(players_and_scores)
         team1 = []
         team2 = []
@@ -108,6 +108,7 @@ def modifyJson(yml):
         # Check if we have already printed these teams
         if teams_str not in printed_team_combinations:
             printed_team_combinations.add(teams_str)
+            print()
             print("Current best team found with score delta of {}".format(best_min_score_delta))
             print("Team 1 (score: {} #players: {}): {}".format(sum(x[1] for x in best_team1), len(best_team1), [x[0] for x in sorted(best_team1, key=lambda x: x[1], reverse=True)]))
             print("Team 1 Tiers - S:{} A:{} B:{} C:{}".format(best_team1_tiers["S"], best_team1_tiers["A"], best_team1_tiers["B"], best_team1_tiers["C"]))
