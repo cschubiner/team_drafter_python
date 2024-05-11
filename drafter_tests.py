@@ -345,3 +345,98 @@ class TestModifyJson(unittest.TestCase):
                 # Check that the teams are balanced in size for each match
                 if best_team1 and best_team2:
                     assert abs(len(eval(best_team1)) - len(eval(best_team2))) <= 1
+    def test_modifyJson_with_forced_teams_same_team(self):
+        player_scores = {
+            "player1": 5,
+            "player2": 5,
+            "player3": 6,
+            "player4": 6,
+            "player5": 11,
+            "player6": 9,
+            "player7": 12,
+            "player8": 10
+        }
+
+        yaml_match_configuration = {
+            "matches": [
+                {
+                    "_match number": 1,
+                    "teams": [
+                        {
+                            "players": [
+                                {"name": "player1 A"},
+                                {"name": "player2 A"},
+                            ]
+                        },
+                        {
+                            "players": [
+                                {"name": "player3"},
+                                {"name": "player4"},
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+
+        with mock.patch('json.load', return_value=player_scores):
+            f = StringIO()
+            with redirect_stdout(f):
+                modifyJson(yaml_match_configuration)
+
+            output = f.getvalue().strip().split('\n')
+            best_team1 = output[-2].split(': ')[-1]
+            best_team2 = output[-1].split(': ')[-1]
+
+            assert "player1 A" in best_team1
+            assert "player2 A" in best_team1
+            assert "player1 A" not in best_team2
+            assert "player2 A" not in best_team2
+
+    def test_modifyJson_with_forced_teams_different_teams(self):
+        player_scores = {
+            "player1": 5,
+            "player2": 5,
+            "player3": 6,
+            "player4": 6,
+            "player5": 11,
+            "player6": 9,
+            "player7": 12,
+            "player8": 10
+        }
+
+        yaml_match_configuration = {
+            "matches": [
+                {
+                    "_match number": 1,
+                    "teams": [
+                        {
+                            "players": [
+                                {"name": "player1 A"},
+                                {"name": "player2 B"},
+                            ]
+                        },
+                        {
+                            "players": [
+                                {"name": "player3"},
+                                {"name": "player4"},
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+
+        with mock.patch('json.load', return_value=player_scores):
+            f = StringIO()
+            with redirect_stdout(f):
+                modifyJson(yaml_match_configuration)
+
+            output = f.getvalue().strip().split('\n')
+            best_team1 = output[-2].split(': ')[-1]
+            best_team2 = output[-1].split(': ')[-1]
+
+            assert "player1 A" in best_team1
+            assert "player2 B" in best_team2
+            assert "player1 A" not in best_team2
+            assert "player2 B" not in best_team1
