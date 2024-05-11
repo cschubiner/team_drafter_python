@@ -78,12 +78,28 @@ def modifyJson(yml):
 
 
         team_size_tiny_delta = abs(len(team1) - len(team2)) * 0.0001
-        if score_delta + team_size_tiny_delta < best_min_score_delta:
+        if score_delta + team_size_tiny_delta <= best_min_score_delta:
+            if score_delta + team_size_tiny_delta < best_min_score_delta - 0.1:
+                best_team1_tiers = Counter(get_player_tier(x[1]) for x in team1)
+                best_team2_tiers = Counter(get_player_tier(x[1]) for x in team2)
+            else:
+                # Tiebreak using the Arthur method
+                team1_tiers = Counter(get_player_tier(x[1]) for x in team1)
+                team2_tiers = Counter(get_player_tier(x[1]) for x in team2)
+
+                if abs(team1_tiers["S"] - team2_tiers["S"]) < abs(best_team1_tiers["S"] - best_team2_tiers["S"]):
+                    pass
+                elif abs(team1_tiers["S"] - team2_tiers["S"]) > abs(best_team1_tiers["S"] - best_team2_tiers["S"]):
+                    continue
+                elif abs(team1_tiers["A"] - team2_tiers["A"]) < abs(best_team1_tiers["A"] - best_team2_tiers["A"]):
+                    pass
+                elif abs(team1_tiers["A"] - team2_tiers["A"]) > abs(best_team1_tiers["A"] - best_team2_tiers["A"]):
+                    continue
+
             best_min_score_delta = score_delta + team_size_tiny_delta
             best_team1 = team1
             best_team2 = team2
-            best_team1_tiers = Counter(get_player_tier(x[1]) for x in best_team1)
-            best_team2_tiers = Counter(get_player_tier(x[1]) for x in best_team2)
+        # ... (rest of the code remains unchanged)
         elif score_delta + team_size_tiny_delta == best_min_score_delta:
             # Tiebreak using the Arthur method
             team1_tiers = Counter(get_player_tier(x[1]) for x in team1)
