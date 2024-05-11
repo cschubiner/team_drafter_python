@@ -3,7 +3,7 @@ matches:
   teams:
   - players:
     - name: clayton_schubiner
-    - name: jeff_grimes
+    - name: jeff_grimes A
     - name: daniel_khasanov
     - name: liam_kinney
     - name: trevor_assaf
@@ -16,14 +16,11 @@ matches:
     team score: 72.80000000000001
   - players:
     - name: andrew_carmine
-    - name: david_strickland
-    - name: alex_roe A
     - name: michael_arbeed
-    - name: david_freed
     - name: jack_rogers
-    team num_players: 6
+    team num_players: 3
     team number: 2
-    team score: 44.95
+    team score: 23.7
 night name: halo
 z_fair_way_to_pick_teams: a1, b1, a1, b2, a1
 zzz_not_playing:
@@ -31,8 +28,11 @@ zzz_not_playing:
     z:
     - name: rohit
     - name: moe_koelueker
+    - name: alex_roe B
+    - name: craig_collins
+    - name: david_freed
+    - name: david_strickland
     - name: Alex_Mark B
-    - name: craig_collins A
     - name: garrett_schubiner A
     - name: jason_leung
     - name: jack_shepherd
