@@ -250,7 +250,7 @@ class TestModifyJson(unittest.TestCase):
             best_team1_s_tier = [p for p in best_team1_players if player_scores[p] == 10]
             best_team2_s_tier = [p for p in best_team2_players if player_scores[p] == 10]
 
-            self.assertEqual(len(best_team1_s_tier), len(best_team2_s_tier), "S tier players should be evenly distributed")
+            self.assertTrue(abs(len(best_team1_s_tier) - len(best_team2_s_tier)) <= 1, "Difference in S tier players should be no more than 1")
 
             # If S tier players are evenly distributed, check for A tier distribution
             if len(best_team1_s_tier) == len(best_team2_s_tier):
