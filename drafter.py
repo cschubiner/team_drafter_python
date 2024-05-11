@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import json
 from collections import defaultdict
+from collections import Counter
 from typing import Dict, Any
 
 import yaml
@@ -86,8 +87,13 @@ def modifyJson(yml):
             best_team2 = team2
             print("New best team found with score delta of {}".format(score_delta))
             # Print with teams sorted by score
+            team1_tiers = Counter(get_player_tier(x[1]) for x in team1)
+            team2_tiers = Counter(get_player_tier(x[1]) for x in team2)
+            
             print("Team 1 (score: {} #players: {}): {}".format(team1_score, len(team1), [x[0] for x in sorted(team1, key=lambda x: x[1], reverse=True)]))
+            print("Team 1 Tiers - S:{} A:{} B:{} C:{}".format(team1_tiers["S"], team1_tiers["A"], team1_tiers["B"], team1_tiers["C"]))
             print("Team 2 (score: {} #players: {}): {}".format(team2_score, len(team2), [x[0] for x in sorted(team2, key=lambda x: x[1], reverse=True)]))
+            print("Team 2 Tiers - S:{} A:{} B:{} C:{}".format(team2_tiers["S"], team2_tiers["A"], team2_tiers["B"], team2_tiers["C"]))
             # print a message of congratulations
 
     # for match in yml["matches"]:
@@ -127,6 +133,16 @@ def read_yml(yml):
             team['team number'] = i + 1
 
     return forced_team_to_player_names, player_to_score
+
+def get_player_tier(player_score):
+    if player_score >= 10:
+        return "S"
+    elif player_score >= 8:
+        return "A" 
+    elif player_score >= 6:
+        return "B"
+    else:
+        return "C"
 
 
 def modifyFile(path):
