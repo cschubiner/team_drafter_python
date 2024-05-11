@@ -34,6 +34,8 @@ def modifyJson(yml):
     already_seen_teams = set()
     already_seen_teams = set()
     printed_team_combinations = set()
+    best_team1_tiers = Counter()
+    best_team2_tiers = Counter()
 
     # Choose 100 random teams
     for i in range(30250):
@@ -86,20 +88,24 @@ def modifyJson(yml):
             best_min_score_delta = score_delta + team_size_tiny_delta
             best_team1 = team1
             best_team2 = team2
+            best_team1_tiers = Counter(get_player_tier(x[1]) for x in best_team1)
+            best_team2_tiers = Counter(get_player_tier(x[1]) for x in best_team2)
         elif score_delta + team_size_tiny_delta == best_min_score_delta:
             # Tiebreak using the Arthur method
             team1_tiers = Counter(get_player_tier(x[1]) for x in team1)
             team2_tiers = Counter(get_player_tier(x[1]) for x in team2)
-            best_team1_tiers = Counter(get_player_tier(x[1]) for x in best_team1)
-            best_team2_tiers = Counter(get_player_tier(x[1]) for x in best_team2)
 
             if abs(team1_tiers["S"] - team2_tiers["S"]) < abs(best_team1_tiers["S"] - best_team2_tiers["S"]):
                 best_team1 = team1
                 best_team2 = team2
+                best_team1_tiers = team1_tiers
+                best_team2_tiers = team2_tiers
             elif abs(team1_tiers["S"] - team2_tiers["S"]) == abs(best_team1_tiers["S"] - best_team2_tiers["S"]):
                 if abs(team1_tiers["A"] - team2_tiers["A"]) < abs(best_team1_tiers["A"] - best_team2_tiers["A"]):
                     best_team1 = team1 
                     best_team2 = team2
+                    best_team1_tiers = team1_tiers
+                    best_team2_tiers = team2_tiers
 
         # Create a string representation of the teams
         team1_str = ' '.join(sorted([x[0] for x in best_team1]))
