@@ -32,7 +32,7 @@ def modifyJson(yml):
     best_team2_tiers = Counter()
 
     # Choose 100 random teams
-    for i in range(80000):
+    for i in range(80100):
         random.shuffle(players_and_scores)
         team1 = []
         team2 = []
@@ -75,6 +75,8 @@ def modifyJson(yml):
         team1_score = sum([x[1] for x in team1])
         team2_score = sum([x[1] for x in team2])
         score_delta = abs(team1_score - team2_score)
+        # round the score delta to 4 decimal places
+        score_delta = round(score_delta, 2)
 
 
         team_size_tiny_delta = abs(len(team1) - len(team2)) * 0.0001
@@ -109,12 +111,11 @@ def modifyJson(yml):
         if teams_str not in printed_team_combinations:
             printed_team_combinations.add(teams_str)
             print()
-            print("Current best team found with score delta of {}".format(best_min_score_delta))
-            print("Team 1 (score: {} #players: {}): {}".format(sum(x[1] for x in best_team1), len(best_team1), [x[0] for x in sorted(best_team1, key=lambda x: x[1], reverse=True)]))
-            print("Team 1 Tiers - S:{} A:{} B:{} C:{}".format(best_team1_tiers["S"], best_team1_tiers["A"], best_team1_tiers["B"], best_team1_tiers["C"]))
-            print("Team 2 (score: {} #players: {}): {}".format(sum(x[1] for x in best_team2), len(best_team2), [x[0] for x in sorted(best_team2, key=lambda x: x[1], reverse=True)]))  
-            print("Team 2 Tiers - S:{} A:{} B:{} C:{}".format(best_team2_tiers["S"], best_team2_tiers["A"], best_team2_tiers["B"], best_team2_tiers["C"]))
-            # print a message of congratulations
+            print("Current best team found with score delta of {:.3f}".format(best_min_score_delta))
+            print("Team 1 (score: {:.2f} #players: {}): {}".format(sum(x[1] for x in best_team1), len(best_team1), [x[0] for x in sorted(best_team1, key=lambda x: x[1], reverse=True)]))
+            # print("Team 1 Tiers - S:{} A:{} B:{} C:{}".format(best_team1_tiers["S"], best_team1_tiers["A"], best_team1_tiers["B"], best_team1_tiers["C"]))
+            print("Team 2 (score: {:.2f} #players: {}): {}".format(sum(x[1] for x in best_team2), len(best_team2), [x[0] for x in sorted(best_team2, key=lambda x: x[1], reverse=True)]))
+            # print("Team 2 Tiers - S:{} A:{} B:{} C:{}".format(best_team2_tiers["S"], best_team2_tiers["A"], best_team2_tiers["B"], best_team2_tiers["C"]))
 
     # for match in yml["matches"]:
     #     match["proposed_team_1"] = [x[0] for x in sorted(best_team1, key=lambda x: x[1], reverse=True)]
