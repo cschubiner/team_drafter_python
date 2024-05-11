@@ -214,18 +214,20 @@ class TestModifyJson(unittest.TestCase):
                     "teams": [
                         {
                             "players": [
-                                {"name": "player1"},
-                                {"name": "player2"},
+                                {"name": "player1"},  # One S tier player
+                                {"name": "player3"},  # One A tier player
+                                {"name": "player5"},  # One B tier player
+                                {"name": "player6"},  # One C tier player
                                 {"name": "player5"},
                                 {"name": "player6"},
                             ]
                         },
                         {
                             "players": [
-                                {"name": "player3"},
-                                {"name": "player4"},
-                                {"name": "player7"},
-                                {"name": "player8"},
+                                {"name": "player2"},  # One S tier player
+                                {"name": "player4"},  # One A tier player
+                                {"name": "player7"},  # One S tier player
+                                {"name": "player8"},  # One A tier player
                             ]
                         }
                     ]
