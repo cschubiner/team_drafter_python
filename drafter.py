@@ -80,20 +80,34 @@ def modifyJson(yml):
 
 
         team_size_tiny_delta = abs(len(team1) - len(team2)) * 0.0001
-        if score_delta + team_size_tiny_delta <= best_min_score_delta:
-        # if score_delta <= best_min_score_delta and abs(len(team1) - len(team2)) < 2:
+        if score_delta + team_size_tiny_delta < best_min_score_delta:
             best_min_score_delta = score_delta + team_size_tiny_delta
             best_team1 = team1
             best_team2 = team2
-            print("New best team found with score delta of {}".format(score_delta))
-            # Print with teams sorted by score
+        elif score_delta + team_size_tiny_delta == best_min_score_delta:
+            # Tiebreak using the Arthur method
             team1_tiers = Counter(get_player_tier(x[1]) for x in team1)
             team2_tiers = Counter(get_player_tier(x[1]) for x in team2)
-            
-            print("Team 1 (score: {} #players: {}): {}".format(team1_score, len(team1), [x[0] for x in sorted(team1, key=lambda x: x[1], reverse=True)]))
-            print("Team 1 Tiers - S:{} A:{} B:{} C:{}".format(team1_tiers["S"], team1_tiers["A"], team1_tiers["B"], team1_tiers["C"]))
-            print("Team 2 (score: {} #players: {}): {}".format(team2_score, len(team2), [x[0] for x in sorted(team2, key=lambda x: x[1], reverse=True)]))
-            print("Team 2 Tiers - S:{} A:{} B:{} C:{}".format(team2_tiers["S"], team2_tiers["A"], team2_tiers["B"], team2_tiers["C"]))
+            best_team1_tiers = Counter(get_player_tier(x[1]) for x in best_team1)
+            best_team2_tiers = Counter(get_player_tier(x[1]) for x in best_team2)
+
+            if abs(team1_tiers["S"] - team2_tiers["S"]) < abs(best_team1_tiers["S"] - best_team2_tiers["S"]):
+                best_team1 = team1
+                best_team2 = team2
+            elif abs(team1_tiers["S"] - team2_tiers["S"]) == abs(best_team1_tiers["S"] - best_team2_tiers["S"]):
+                if abs(team1_tiers["A"] - team2_tiers["A"]) < abs(best_team1_tiers["A"] - best_team2_tiers["A"]):
+                    best_team1 = team1 
+                    best_team2 = team2
+
+        print("Current best team found with score delta of {}".format(best_min_score_delta))
+        # Print with teams sorted by score  
+        best_team1_tiers = Counter(get_player_tier(x[1]) for x in best_team1)
+        best_team2_tiers = Counter(get_player_tier(x[1]) for x in best_team2)
+
+        print("Team 1 (score: {} #players: {}): {}".format(sum(x[1] for x in best_team1), len(best_team1), [x[0] for x in sorted(best_team1, key=lambda x: x[1], reverse=True)]))
+        print("Team 1 Tiers - S:{} A:{} B:{} C:{}".format(best_team1_tiers["S"], best_team1_tiers["A"], best_team1_tiers["B"], best_team1_tiers["C"]))
+        print("Team 2 (score: {} #players: {}): {}".format(sum(x[1] for x in best_team2), len(best_team2), [x[0] for x in sorted(best_team2, key=lambda x: x[1], reverse=True)]))  
+        print("Team 2 Tiers - S:{} A:{} B:{} C:{}".format(best_team2_tiers["S"], best_team2_tiers["A"], best_team2_tiers["B"], best_team2_tiers["C"]))
             # print a message of congratulations
 
     # for match in yml["matches"]:
