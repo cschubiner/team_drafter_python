@@ -1,22 +1,23 @@
-Player Name,Round 1,Round 2,Round 3,Round 4,Round 5,Round 6,Round 7,Round 8,Round 9,Round 10,Round 11,Player Score
-alex_b,Tie as Team 2,Lose,Tie as Team 1,Tie as Team 1,Win,BigLoss,Tie as Team 2,BigWin,Tie as Team 1,Lose,BigWin,10.0
-alex_roe,Tie as Team 2,Lose,Tie as Team 2,Tie as Team 2,Lose,BigLoss,Tie as Team 2,BigWin,Tie as Team 2,Win,BigLoss,9
-andrew_carmine,N/A,N/A,N/A,N/A,N/A,BigLoss,Tie as Team 1,BigLoss,Tie as Team 2,Win,BigLoss,4.75
-arthur_orchanian,Tie as Team 2,Lose,Tie as Team 1,Tie as Team 1,Win,BigLoss,Tie as Team 2,BigWin,Tie as Team 1,Lose,BigWin,10.5
-clayton_schubiner,Tie as Team 1,Win,Tie as Team 1,Tie as Team 1,Win,BigWin,Tie as Team 2,BigWin,Tie as Team 2,Win,BigLoss,11.5
-craig_collins,Tie as Team 2,Lose,Tie as Team 1,Tie as Team 1,Win,BigWin,Tie as Team 1,BigLoss,Tie as Team 2,Win,BigLoss,13.25
-david_freed,Tie as Team 2,Lose,Tie as Team 2,Tie as Team 2,Lose,BigWin,Tie as Team 1,BigLoss,Tie as Team 1,Lose,BigWin,5.25
-david_strickland,Tie as Team 2,Lose,Tie as Team 1,Tie as Team 1,Win,BigLoss,Tie as Team 2,BigWin,Tie as Team 1,Lose,BigWin,7.0
-garrett_schubiner,Tie as Team 1,Win,Tie as Team 2,Tie as Team 2,Lose,BigLoss,Tie as Team 2,BigWin,Tie as Team 1,Lose,BigWin,8.5
-jack_rogers,Tie as Team 1,Win,Tie as Team 2,Tie as Team 2,Lose,BigWin,Tie as Team 2,BigWin,Tie as Team 1,Lose,BigWin,8.75
-jack_shepherd,Tie as Team 1,Win,Tie as Team 1,Tie as Team 1,Win,BigLoss,Tie as Team 1,BigLoss,Tie as Team 2,Win,BigLoss,7.5
-jason_leung,N/A,N/A,N/A,N/A,N/A,N/A,N/A,BigWin,Tie as Team 2,Win,BigLoss,2.5
-jeff_grimes,Tie as Team 1,Win,Tie as Team 2,Tie as Team 2,Lose,BigWin,Tie as Team 1,BigLoss,Tie as Team 1,Lose,BigWin,11.25
-liam_kinney,Tie as Team 2,Lose,Tie as Team 2,Tie as Team 2,Lose,BigWin,Tie as Team 1,BigLoss,Tie as Team 2,Win,BigLoss,5.5
-michael_arbeed,Tie as Team 1,Win,Tie as Team 2,Tie as Team 2,Lose,BigWin,Tie as Team 1,BigLoss,Tie as Team 2,Win,BigLoss,9.5
-trevor_assaf,Tie as Team 1,Win,Tie as Team 1,Tie as Team 1,Win,BigLoss,Tie as Team 1,BigLoss,Tie as Team 1,Lose,BigWin,4.25
-Match Notes,1-1 tie,1-0 barely won,0-0 tie (score unknown) - michael & alex b team captains,1-1 tie - michael & alex b team captains,1-0 close win to team 1 - michael & alex b team captains,2-0 wipeout by team 1,1-1 tie,0-2 wipeout by team 2 after adding jason onto team 2,0-0 tie,0-1,3-1 wipeout
-Team 1 Score before match,58.75,58.75,0.0,0.0,0.0,64.25,63.75,63.75,64.25,64.25,64.25
-Team 2 Score before match,59.0,59.0,0.0,0.0,0.0,64.5,63.5,63.5,64.5,64.5,64.5
-Team 1 Total Score,61.25,61.25,64.0,64.0,64.0,65.0,61.25,61.25,65.5,65.5,65.5
-Team 2 Total Score,60.5,60.5,57.75,57.75,57.75,61.5,65.25,67.75,63.5,63.5,63.5
+Player Name,Round 1,Round 2,Round 3,Round 4,Round 5,Round 6,Round 7,Round 8,Round 9,Round 10,Player Score
+Alex_Mark,Tie as Team 2,BigLoss,Tie as Team 2,N/A,N/A,N/A,N/A,N/A,N/A,N/A,8.3
+Zach_Costa,N/A,BigWin,Tie as Team 2,Lose,Lose,Lose,Tie as Team 2,Lose,Lose,Win,6.5
+alex_b,Tie as Team 1,BigLoss,Tie as Team 1,Lose,Lose,Win,Tie as Team 1,Win,Lose,Lose,9.0
+andrew_carmine,Tie as Team 2,BigLoss,Tie as Team 2,Win,Win,Lose,Tie as Team 2,Lose,Win,Lose,4.5
+arthur_orchanian,N/A,BigLoss,Tie as Team 1,Win,Win,Lose,Tie as Team 2,Lose,Lose,Win,10.15
+clayton_schubiner,Tie as Team 1,BigWin,Tie as Team 1,Lose,Lose,Win,Tie as Team 1,Win,Win,Lose,11.6
+daniel_khasanov,N/A,BigWin,Tie as Team 2,Win,Lose,Win,Tie as Team 1,Win,Win,Win,7.6
+jack_rogers,Tie as Team 2,BigLoss,Tie as Team 1,Win,Win,Win,Tie as Team 1,Win,Lose,N/A,8.45
+jeff_grimes,Tie as Team 2,BigWin,Tie as Team 2,Lose,Lose,Lose,Tie as Team 2,Lose,Win,Win,11.25
+liam_kinney,Tie as Team 1,BigLoss,Tie as Team 2,Lose,Win,Lose,Tie as Team 2,Lose,Win,Lose,4.7
+michael_arbeed,Tie as Team 1,BigWin,Tie as Team 2,Win,Win,Win,Tie as Team 1,Win,N/A,N/A,10.75
+moe_koelueker,Tie as Team 1,BigLoss,Tie as Team 1,Win,Win,Lose,Tie as Team 2,Lose,N/A,N/A,3.75
+steven_safreno,Tie as Team 2,BigWin,Tie as Team 1,Win,Win,Lose,Tie as Team 2,Lose,Lose,Lose,7.4
+trevor_assaf,N/A,N/A,N/A,Lose,Lose,Win,Tie as Team 1,Win,Win,Win,4.6
+Match Notes,1-1 tie 5/10/24 team1 left early?,2-0 team 1 wipeout,1-1 tie,2-3 team 2,1-2 team 2,3-2 team 1,1-1 tie game - same teams,1-0 team 1 - same teams,2-1 team 1,2-1 team 1
+Team 1 Score before match,40.75,52.25,52.5,49.5,50.0,50.13,50.13,50.13,43.25,39.0
+Team 2 Score before match,40.75,52.25,52.5,49.5,49.75,50.25,50.25,50.25,43.38,39.25
+Team 1 Total Score,39.800000000000004,55.1,50.35,47.650000000000006,50.550000000000004,52.0,52.0,52.0,44.25000000000001,40.1
+Team 2 Total Score,39.9,48.85,53.6,52.6,49.7,48.25,48.25,48.25,41.5,37.2
+Team 1 Tier Counts,S:2 A:1 B:0 C:2,S:3 A:0 B:3 C:0,S:2 A:2 B:1 C:1,S:2 A:1 B:1 C:2,S:2 A:1 B:2 C:1,S:2 A:2 B:1 C:1,S:2 A:2 B:1 C:1,S:2 A:2 B:1 C:1,S:2 A:0 B:1 C:3,S:2 A:0 B:2 C:1
+Team 2 Tier Counts,S:1 A:2 B:1 C:1,S:1 A:3 B:0 C:3,S:2 A:1 B:2 C:2,S:2 A:1 B:2 C:2,S:2 A:1 B:1 C:3,S:2 A:0 B:2 C:3,S:2 A:0 B:2 C:3,S:2 A:0 B:2 C:3,S:1 A:2 B:2 C:0,S:1 A:1 B:1 C:2
+Arthur Prediction,Team 1,Team 1 Wipeout,Team 1,Tie,Tie,Team 1,Team 1,Team 1,Team 1,Team 1

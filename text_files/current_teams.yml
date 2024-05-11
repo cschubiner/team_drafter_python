@@ -6,34 +6,34 @@ matches:
     - name: jeff_grimes
     - name: daniel_khasanov
     - name: liam_kinney
-    - name: trevor_assaf A
+    - name: trevor_assaf
     - name: arthur_orchanian
     - name: Zach_Costa
-    - name: steven_safreno B
+    - name: steven_safreno
     - name: alex_b
     team num_players: 9
     team number: 1
-    team score: 73.5
+    team score: 72.80000000000001
   - players:
     - name: andrew_carmine
-    team num_players: 1
+    - name: david_strickland
+    - name: alex_roe A
+    - name: michael_arbeed
+    - name: david_freed
+    - name: jack_rogers
+    team num_players: 6
     team number: 2
-    team score: 4.75
+    team score: 44.95
 night name: halo
 z_fair_way_to_pick_teams: a1, b1, a1, b2, a1
 zzz_not_playing:
   z:
     z:
     - name: rohit
-    - name: jack_rogers
     - name: moe_koelueker
     - name: Alex_Mark B
     - name: craig_collins A
     - name: garrett_schubiner A
-    - name: david_strickland
-    - name: alex_roe A
-    - name: michael_arbeed
-    - name: david_freed
     - name: jason_leung
     - name: jack_shepherd
     - name: jake_leichtling B
