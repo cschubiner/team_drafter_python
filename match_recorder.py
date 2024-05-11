@@ -77,14 +77,26 @@ def get_player_tier(player_score):
         return 'C'
 
 def predict_winner(team1_tier_counts, team2_tier_counts):
-    if team1_tier_counts['S'] > team2_tier_counts['S']:
+    if team1_tier_counts['S'] > team2_tier_counts['S'] + 1:
+        return 'Team 1 Wipeout'
+    elif team2_tier_counts['S'] > team1_tier_counts['S'] + 1:
+        return 'Team 2 Wipeout'
+    elif team1_tier_counts['S'] > team2_tier_counts['S']:
         return 'Team 1'
     elif team2_tier_counts['S'] > team1_tier_counts['S']:
         return 'Team 2'
+    elif team1_tier_counts['A'] > team2_tier_counts['A'] + 1:
+        return 'Team 1 Wipeout'
+    elif team2_tier_counts['A'] > team1_tier_counts['A'] + 1:
+        return 'Team 2 Wipeout'
     elif team1_tier_counts['A'] > team2_tier_counts['A']:
         return 'Team 1'
     elif team2_tier_counts['A'] > team1_tier_counts['A']:
         return 'Team 2'
+    elif team1_tier_counts['B'] > team2_tier_counts['B'] + 1:
+        return 'Team 1 Wipeout'  
+    elif team2_tier_counts['B'] > team1_tier_counts['B'] + 1:
+        return 'Team 2 Wipeout'
     else:
         return 'Tie'
 
