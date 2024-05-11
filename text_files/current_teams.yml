@@ -2,7 +2,7 @@ matches:
 - _match number: 1
   teams:
   - players:
-    - name: clayton_schubiner
+    - name: clayton_schubiner A
     - name: jeff_grimes A
     - name: daniel_khasanov
     - name: liam_kinney
@@ -10,14 +10,14 @@ matches:
     - name: arthur_orchanian
     - name: Zach_Costa
     - name: steven_safreno
-    - name: alex_b
+    - name: alex_b A
     team num_players: 9
     team number: 1
     team score: 72.80000000000001
   - players:
     - name: andrew_carmine
     - name: michael_arbeed
-    - name: jack_rogers
+    - name: jack_rogers B
     team num_players: 3
     team number: 2
     team score: 23.7
