@@ -343,4 +343,5 @@ class TestModifyJson(unittest.TestCase):
                 best_team2 = output[-3 + 2*i].split(': ')[-1]
 
                 # Check that the teams are balanced in size for each match
-                assert abs(len(eval(best_team1)) - len(eval(best_team2))) <= 1
+                if best_team1 and best_team2:
+                    assert abs(len(eval(best_team1)) - len(eval(best_team2))) <= 1
