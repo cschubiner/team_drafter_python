@@ -32,6 +32,7 @@ def modifyJson(yml):
 
     best_min_score_delta = 999
     already_seen_teams = set()
+    already_seen_teams = set()
 
     # Choose 100 random teams
     for i in range(30250):
