@@ -76,6 +76,18 @@ def get_player_tier(player_score):
     else:
         return 'C'
 
+def predict_winner(team1_tier_counts, team2_tier_counts):
+    if team1_tier_counts['S'] > team2_tier_counts['S']:
+        return 'Team 1'
+    elif team2_tier_counts['S'] > team1_tier_counts['S']:
+        return 'Team 2'
+    elif team1_tier_counts['A'] > team2_tier_counts['A']:
+        return 'Team 1'
+    elif team2_tier_counts['A'] > team1_tier_counts['A']:
+        return 'Team 2'
+    else:
+        return 'Tie'
+
 def append_to_csv(filename, unique_players, rounds_data, player_scores, team1_scores_from_text, team2_scores_from_text):
     # Open the file in append mode
     with open(filename, mode='w', newline='') as file:
@@ -199,6 +211,38 @@ def append_to_csv(filename, unique_players, rounds_data, player_scores, team1_sc
 
         writer.writerow(team1_tiers_row)
         writer.writerow(team2_tiers_row)
+
+        # Predict the winner based on Arthur's algorithm and write it to the CSV
+        arthur_predictions_row = ['Arthur Prediction']
+        for team1_players, team2_players, _, _, _ in rounds_data:
+            team1_tier_counts = {'S': 0, 'A': 0, 'B': 0, 'C': 0}
+            for player in team1_players:
+                normalized_player = player.strip("'")
+                if len(normalized_player.split()) > 1 and normalized_player.split()[-1] in ['A', 'B']:
+                    normalized_player = ' '.join(normalized_player.split()[:-1])
+                normalized_player = normalized_player.rstrip('.')
+                player_score = player_scores.get(normalized_player, None)
+                if player_score is None:
+                    raise Exception(f"Player {normalized_player} not found in player scores")
+                tier = get_player_tier(player_score)
+                team1_tier_counts[tier] += 1
+
+            team2_tier_counts = {'S': 0, 'A': 0, 'B': 0, 'C': 0}
+            for player in team2_players:
+                normalized_player = player.strip("'")
+                if len(normalized_player.split()) > 1 and normalized_player.split()[-1] in ['A', 'B']:
+                    normalized_player = ' '.join(normalized_player.split()[:-1])
+                normalized_player = normalized_player.rstrip('.')
+                player_score = player_scores.get(normalized_player, None)
+                if player_score is None:
+                    raise Exception(f"Player {normalized_player} not found in player scores")
+                tier = get_player_tier(player_score)
+                team2_tier_counts[tier] += 1
+
+            predicted_winner = predict_winner(team1_tier_counts, team2_tier_counts)
+            arthur_predictions_row.append(predicted_winner)
+
+        writer.writerow(arthur_predictions_row)
 
 
 
