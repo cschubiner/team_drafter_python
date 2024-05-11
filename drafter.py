@@ -99,6 +99,7 @@ def modifyJson(yml):
                     best_team1 = team1 
                     best_team2 = team2
 
+        print()
         print("Current best team found with score delta of {}".format(best_min_score_delta))
         # Print with teams sorted by score  
         best_team1_tiers = Counter(get_player_tier(x[1]) for x in best_team1)
