@@ -149,7 +149,7 @@ def read_yml(yml):
     forced_team_to_player_names = defaultdict(list)
 
     for i, match in enumerate(yml["matches"]):
-        match["_match number"] = i + 1
+        # Process match without modifying the input yml
         for team in match["teams"]:
             for player in team["players"]:
                 name_split = player['name'].split(' ')
