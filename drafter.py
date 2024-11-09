@@ -110,11 +110,25 @@ def modifyJson(yml):
         # Check if we have already printed these teams
         if teams_str not in printed_team_combinations:
             printed_team_combinations.add(teams_str)
+            # Calculate Arthur scores (sum of scores >= 10)
+            arthur_score_team1 = sum(player[1] for player in best_team1 if player[1] >= 10)
+            arthur_score_team2 = sum(player[1] for player in best_team2 if player[1] >= 10)
+
             print()
             print("Current best team found with score delta of {:.4g}".format(best_min_score_delta))
-            print("Team 1 (score: {:.4g} #players: {}): {}".format(sum(x[1] for x in best_team1), len(best_team1), [x[0] for x in sorted(best_team1, key=lambda x: x[1], reverse=True)]))
+            print("Team 1 (score: {:.4g}, #players: {}, Arthur score: {:.4g}): {}".format(
+                sum(x[1] for x in best_team1),
+                len(best_team1),
+                arthur_score_team1,
+                [x[0] for x in sorted(best_team1, key=lambda x: x[1], reverse=True)]
+            ))
             # print("Team 1 Tiers - S:{} A:{} B:{} C:{}".format(best_team1_tiers["S"], best_team1_tiers["A"], best_team1_tiers["B"], best_team1_tiers["C"]))
-            print("Team 2 (score: {:.4g} #players: {}): {}".format(sum(x[1] for x in best_team2), len(best_team2), [x[0] for x in sorted(best_team2, key=lambda x: x[1], reverse=True)]))
+            print("Team 2 (score: {:.4g}, #players: {}, Arthur score: {:.4g}): {}".format(
+                sum(x[1] for x in best_team2),
+                len(best_team2),
+                arthur_score_team2,
+                [x[0] for x in sorted(best_team2, key=lambda x: x[1], reverse=True)]
+            ))
             # print("Team 2 Tiers - S:{} A:{} B:{} C:{}".format(best_team2_tiers["S"], best_team2_tiers["A"], best_team2_tiers["B"], best_team2_tiers["C"]))
 
     # for match in yml["matches"]:
