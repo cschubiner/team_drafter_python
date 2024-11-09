@@ -32,7 +32,7 @@ def modifyJson(yml):
     best_team2_tiers = Counter()
 
     # Choose 100 random teams
-    for i in range(80100):
+    for i in range(160200):
         random.shuffle(players_and_scores)
         team1 = []
         team2 = []
