@@ -3,45 +3,47 @@ matches:
   teams:
   - players:
     - name: clayton_schubiner A
-    - name: jeff_grimes A
-    - name: daniel_khasanov
-    - name: liam_kinney
-    - name: trevor_assaf
-    - name: arthur_orchanian
-    - name: Zach_Costa
-    - name: steven_safreno
+    - name: doug_safreno A
     - name: alex_b A
-    team num_players: 9
+    - name: david_strickland
+    - name: garrett_schubiner A
+    - name: jack_shepherd
+    - name: moe_koelueker
+    team num_players: 7
     team number: 1
-    team score: 72.80000000000001
+    team score: 53.75
   - players:
-    - name: andrew_carmine
     - name: michael_arbeed
-    - name: jack_rogers B
-    team num_players: 3
+    - name: craig_collins
+    - name: jack_rogers
+    - name: jeremy_leff
+    - name: good_tv A
+    team num_players: 5
     team number: 2
-    team score: 23.7
+    team score: 40.9
 night name: halo
 z_fair_way_to_pick_teams: a1, b1, a1, b2, a1
 zzz_not_playing:
   z:
     z:
+    - name: Zach_Costa
+    - name: arthur_orchanian A
     - name: rohit
-    - name: moe_koelueker
-    - name: alex_roe B
-    - name: craig_collins
-    - name: david_freed
-    - name: david_strickland
-    - name: Alex_Mark B
-    - name: garrett_schubiner A
+    - name: michael_hess A
+    - name: steven_safreno
+    - name: alex_roe
     - name: jason_leung
-    - name: jack_shepherd
+    - name: jeff_grimes
+    - name: daniel_khasanov
+    - name: liam_kinney
+    - name: trevor_assaf
+    - name: andrew_carmine
+    - name: david_freed
+    - name: Alex_Mark B
     - name: jake_leichtling B
     - name: eli_wald B
-    - name: jeremy_leff
     - name: elliot_boschwitz
     - name: steven_coffrey
-    - name: michael_hess
     - name: sebastian_boberg
     - name: cole
     - name: jake_racich

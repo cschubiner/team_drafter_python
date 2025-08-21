@@ -1,0 +1,40 @@
+Current best team found with score delta of 0.05
+Team 1 (score: 52.2, #players: 6, Arthur score: 21.75): ['clayton_schubiner A', 'arthur_orchanian A', 'alex_b A', 'jack_rogers', 'jack_shepherd A', 'doug_safreno A']
+Team 2 (score: 52.25, #players: 6, Arthur score: 24): ['craig_collins', 'michael_arbeed B', 'alex_roe', 'garrett_schubiner B', 'david_strickland', 'moe_koelueker']
+3-0 wipeout (but 1 xbox on losing team had no game mode enabled)
+
+
+Current best team found with score delta of 0.0001
+Team 1 (score: 60.35, #players: 7, Arthur score: 22.35): ['clayton_schubiner', 'arthur_orchanian', 'alex_b A', 'garrett_schubiner', 'jack_shepherd', 'david_strickland', 'jeremy_leff']
+Team 2 (score: 60.35, #players: 8, Arthur score: 24): ['craig_collins', 'michael_arbeed', 'alex_roe', 'jack_rogers B', 'steven_safreno', 'doug_safreno', 'moe_koelueker', 'good_tv']
+2-1 team 2 won 
+
+
+Current best team found with score delta of 0.0001
+Team 1 (score: 60.35, #players: 7, Arthur score: 22.35): ['clayton_schubiner', 'arthur_orchanian', 'alex_b A', 'garrett_schubiner', 'jack_shepherd', 'david_strickland', 'jeremy_leff']
+Team 2 (score: 60.35, #players: 8, Arthur score: 24): ['craig_collins', 'michael_arbeed', 'alex_roe', 'jack_rogers B', 'steven_safreno', 'doug_safreno', 'moe_koelueker', 'good_tv']
+(same teams tie 0-0 -- epic finale to review with double headshot & pelican)
+
+
+Current best team found with score delta of 0.05
+Team 1 (score: 62.95, #players: 8, Arthur score: 24.85): ['craig_collins A', 'clayton_schubiner A', 'alex_roe', 'jack_rogers A', 'steven_safreno', 'david_strickland', 'michael_hess A', 'good_tv']
+Team 2 (score: 63, #players: 8, Arthur score: 21.5): ['michael_arbeed B', 'arthur_orchanian', 'alex_b B', 'garrett_schubiner', 'jack_shepherd', 'doug_safreno', 'jeremy_leff', 'moe_koelueker']
+win 2-0 team 2 (wipeout)
+
+
+
+Current best team found with score delta of 0
+Team 1 (score: 62.3, #players: 8, Arthur score: 35.6): ['craig_collins A', 'clayton_schubiner A', 'arthur_orchanian A', 'jack_rogers A', 'doug_safreno', 'jeremy_leff', 'michael_hess A', 'good_tv']
+Team 2 (score: 62.3, #players: 8, Arthur score: 11.15): ['michael_arbeed B', 'alex_b B', 'alex_roe', 'jack_shepherd', 'garrett_schubiner', 'steven_safreno', 'david_strickland', 'moe_koelueker']
+team 1 wins 3-2 close game
+
+
+craig alex b doug_safreno dstrick garrett jeremy
+michael clay jack jack TV moe
+
+
+
+Current best team found with score delta of 0.8502
+Team 1 (score: 47.75, #players: 7, Arthur score: 11.6): ['clayton_schubiner A', 'alex_b A', 'garrett_schubiner A', 'doug_safreno A', 'david_strickland', 'moe_koelueker', 'good_tv A']
+Team 2 (score: 46.9, #players: 5, Arthur score: 24.95): ['craig_collins', 'michael_arbeed', 'jack_rogers', 'jack_shepherd', 'jeremy_leff']
+tie 1-1 
